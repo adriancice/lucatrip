@@ -1,5 +1,9 @@
 package com.example.demo.dao;
 
-public interface IUserRepository {
+import org.springframework.data.repository.CrudRepository;
+
+import com.example.demo.model.User;
+
+public interface IUserRepository extends CrudRepository<User, Integer>{
 
 }
