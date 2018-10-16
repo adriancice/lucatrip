@@ -21,7 +21,7 @@
 						<div class="ml-5">
 							<a href="/login" role="button"
 								class="btn btn-outline-success mx-2">Sign in</a> <a
-								href="/altaUsuario" role="button" class="btn btn-outline-info">Sign
+								href="/register" role="button" class="btn btn-outline-info">Sign
 								up</a>
 						</div>
 					</c:when>
@@ -43,7 +43,7 @@
 						</div>
 					</c:otherwise>
 				</c:choose>
-				<a href="/formulario" role="button" class="btn btn-outline-warning ml-2">Formulario</a>
+			
 			</div>
 
 		</nav>
