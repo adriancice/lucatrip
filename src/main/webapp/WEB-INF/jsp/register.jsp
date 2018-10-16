@@ -22,25 +22,26 @@
 	<div class="container w-50 p-3">
 		<hr>
 		<!-- Register form Bootstrap4 -->
-		<form class="form-signin" id="registerForm" action="/registro"
+		<form class="form-signin" id="registerForm" action="/registerUser"
 			method="post">
 			<h1 class="h3 mb-3 font-weight-normal text-center">Alta usuario</h1>
-			<hr>
-			<input type="text" name="user" id="user" class="form-control"
-				placeholder="Username" required autofocus />
+
+			<input type="text" name="name" class="form-control"	placeholder="Nombre" required autofocus />
+			<input type="text"	name="surname" class="form-control my-3" placeholder="Apellido"	required autofocus /> 
+			<input type="email" name="email" class="form-control my-3" placeholder="Email" required />
 			<h1>
 				<span id="mensaje"></span>
 			</h1>
-			<input type="email" name="email" class="form-control my-3"
-				placeholder="Email" required /> <input type="text"
-				onkeypress='return event.charCode >= 48 && event.charCode <= 57'
-				name="telefono" class="form-control my-3" placeholder="Teléfono"
-				minlength="9" maxlength="9" required /> <input type="password"
-				name="password" class="form-control" id="password"
-				placeholder="Password" required /> <input type="password"
-				name="cpassword" class="form-control my-3" id="c_password"
-				placeholder="Confirm Password" required /> <input type="submit"
-				value="Create account" class="btn btn-lg btn-success btn-block" />
+				<input type="password"	name="password" class="form-control" id="password"	placeholder="Password" pattern=".{6,}" title="La contraseña debe tener 6 digitos o mas" required /> 
+				<input type="password" name="cpassword" class="form-control my-3" id="c_password" placeholder="Confirm Password" required />
+			<div class="input-group my-3">
+				<div class="custom-file">
+					<input type="file" class="custom-file-input" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04">
+						<label class="custom-file-label" for="inputGroupFile04">Cargar foto de perfil</label>
+				</div>
+			</div>
+			<input type="submit" value="Create account"
+				class="btn btn-lg btn-success btn-block" />
 		</form>
 		<!-- End register form Bootstrap4 -->
 	</div>

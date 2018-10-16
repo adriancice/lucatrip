@@ -6,4 +6,6 @@ import com.example.demo.model.User;
 
 public interface IUserRepository extends CrudRepository<User, Integer>{
 
+	User findByEmail(String email);
+	
 }
