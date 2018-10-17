@@ -17,7 +17,7 @@
 				<!-- con el c:choose hacemos un if-else si esta loggeado o no -->
 
 				<c:choose>
-					<c:when test="${user == null}">
+					<c:when test="${email == null}">
 						<div class="ml-5">
 							<a href="/login" role="button"
 								class="btn btn-outline-success mx-2">Sign in</a> <a
@@ -30,7 +30,7 @@
 							<button class="btn btn-outline-info dropdown-toggle"
 								type="button" id="dropdownMenuButton" data-toggle="dropdown"
 								aria-haspopup="true" aria-expanded="false">Welcome
-								${user}</button>
+								${name} ${surname}</button>
 							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 								<form action="/logout">
 									<button class="dropdown-item" type="submit">Logout</button>
@@ -43,9 +43,7 @@
 						</div>
 					</c:otherwise>
 				</c:choose>
-			
 			</div>
-
 		</nav>
 	</div>
 </header>
