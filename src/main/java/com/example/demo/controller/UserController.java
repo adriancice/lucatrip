@@ -14,7 +14,7 @@ import com.example.demo.model.User;
 import com.example.demo.service.IUserSevice;
 import com.example.demo.util.SHA_512;
 
-@Controller
+@Controller(value="/logger")
 public class UserController {
 
 	private static final Logger logger = LoggerFactory.getLogger(UserController.class);
@@ -22,21 +22,6 @@ public class UserController {
 	@Autowired
 	private IUserSevice userService;
 
-	@RequestMapping("/register")
-	public ModelAndView register(HttpServletRequest req) {
-		logger.info("register");
-		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("register");
-		return modelAndView;
-	}
-
-	@RequestMapping("/login")
-	public ModelAndView login(HttpServletRequest req) {
-		logger.info("login");
-		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("login");
-		return modelAndView;
-	}
 	/*
 	 *  Metodo  para logear usuario primero tenemos que encriptar la contraseña que nos da el usuario
 	 *  y luego compara los usuarios y las contraseñas
@@ -52,7 +37,6 @@ public class UserController {
 		User u=userService.findByEmail(email);
 		if(email.equals(u.getEmail()) && hashPass.equals(u.getPassword())) {
 			modelAndView.setViewName("index");
-			System.err.println("acierta"+modelAndView.getViewName());
 		}else {
 			System.err.println("falla");
 			 modelAndView.setViewName("login");

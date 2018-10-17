@@ -8,7 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-@Controller
+@Controller(value="/general")
 public class GlobalController {
 
 	private static final Logger logger = LoggerFactory.getLogger(GlobalController.class);
@@ -36,5 +36,4 @@ public class GlobalController {
 		modelAndView.setViewName("login");
 		return modelAndView;
 	}
-
 }
