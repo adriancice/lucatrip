@@ -21,4 +21,13 @@ public class GlobalController {
 		return modelAndView;
 	}
 
+	
+	
+	@RequestMapping("/crearEvento")
+	public ModelAndView crearEvento(HttpServletRequest req) {
+		logger.info("crearEvento");
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("crearEvento");
+		return modelAndView;
+	}
 }
