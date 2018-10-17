@@ -27,9 +27,11 @@
 			<h5>${mensaje}</h5>
 			<h1 class="h3 mb-3 font-weight-normal text-center">Login</h1>
 			<hr>
-			<input type="text" name="email" class="form-control" placeholder="email" required autofocus /> 
-			<input type="password" name="password" class="form-control my-2" placeholder="Password"required /> 
-			<input type="submit" value="Login" class="btn btn-lg btn-success btn-block" />
+			<input type="text" name="email" class="form-control"
+				placeholder="email" required autofocus /> <input type="password"
+				name="password" class="form-control my-2" placeholder="Password"
+				required /> <input type="submit" value="Login"
+				class="btn btn-lg btn-success btn-block" />
 		</form>
 		<!-- End register form Bootstrap4 -->
 	</div>
