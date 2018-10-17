@@ -14,7 +14,7 @@ import com.example.demo.model.User;
 import com.example.demo.service.IUserSevice;
 import com.example.demo.util.SHA_512;
 
-@Controller
+@Controller(value="/logger")
 public class UserController {
 
 	private static final Logger logger = LoggerFactory.getLogger(UserController.class);
@@ -22,22 +22,28 @@ public class UserController {
 	@Autowired
 	private IUserSevice userService;
 
-	@RequestMapping("/register")
-	public ModelAndView register(HttpServletRequest req) {
-		logger.info("register");
+	/*
+	 *  Metodo  para logear usuario primero tenemos que encriptar la contraseña que nos da el usuario
+	 *  y luego compara los usuarios y las contraseñas
+	 */
+	@RequestMapping(value = "/loginUser", method = RequestMethod.POST)
+	public ModelAndView loginUser(HttpServletRequest req) {
+		String mensaje="";
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("register");
+		String email = req.getParameter("email");
+		String pass = req.getParameter("password");
+		SHA_512 sha512 = new SHA_512();
+		String hashPass = sha512.get_SHA_512_SecurePassword(pass);
+		User u=userService.findByEmail(email);
+		if(email.equals(u.getEmail()) && hashPass.equals(u.getPassword())) {
+			modelAndView.setViewName("index");
+		}else {
+			System.err.println("falla");
+			 modelAndView.setViewName("login");
+		}
 		return modelAndView;
+		
 	}
-
-	@RequestMapping("/login")
-	public ModelAndView login(HttpServletRequest req) {
-		logger.info("login");
-		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("login");
-		return modelAndView;
-	}
-
 	/*
 	 * /* metodo para registrar un usuario
 	 */
@@ -53,8 +59,7 @@ public class UserController {
 		System.out.println(hashPass);
 		User u = userService.findByEmail(req.getParameter("email"));
 		if (u == null) {
-			User user = new User(req.getParameter("name"), req.getParameter("surname"), hashPass,
-					req.getParameter("email"));
+			User user = new User(req.getParameter("name"), req.getParameter("surname"), hashPass,req.getParameter("email"));
 			userService.save(user);
 			mensaje = "Usuario registrado correctamente !";
 		} else {

@@ -97,7 +97,6 @@ public class EventoController {
 		Evento evento = new Evento();
 		evento.setLatitud(Double.parseDouble(latitud));
 		evento.setLongitud(Double.parseDouble(longitud));
-		evento.setFechaEvento(fechaEvento);
 		evento.setSitio(lugar);
 //		evento.set
 //		eventoService.add(evento);
