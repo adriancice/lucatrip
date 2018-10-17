@@ -44,4 +44,13 @@ public class GlobalController {
 		modelAndView.setViewName("login");
 		return modelAndView;
 	}
+
+	@RequestMapping("/verPerfil")
+	public ModelAndView verPerfil(HttpServletRequest req) {
+		logger.info("verPerfil");
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("verPerfil");
+		return modelAndView;
+	}
+
 }

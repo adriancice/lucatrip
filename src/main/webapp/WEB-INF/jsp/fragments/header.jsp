@@ -1,4 +1,5 @@
 <header>
+
 	<div
 		class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
 		<a class="my-0 mr-md-auto font-weight-normal text-dark" href="/">LucaTrip</a>
@@ -25,8 +26,8 @@
 						<form action="/logout">
 							<button class="dropdown-item" type="submit">Logout</button>
 							<a class="dropdown-item" href="/altaAnuncio">Crear anuncio</a> <a
-								class="dropdown-item" href="/misAnuncios">Ver mis anuncios</a> <a
-								class="dropdown-item" href="/crearCategoria">Crear categoria</a>
+								class="dropdown-item" href="/misAnuncios">Ver mis anuncios</a> <hr><a
+								class="dropdown-item" href="/verPerfil">Ver mi perfil</a>
 						</form>
 					</div>
 				</div>

@@ -4,16 +4,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-<!-- Required meta tags -->
-<meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-<!-- Bootstrap CSS -->
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-<link rel="stylesheet"
-	href="https://getbootstrap.com/docs/4.1/examples/carousel/carousel.css">
+<%@ include file="fragments/head.jsp"%>
 
 <title>LucaTrip</title>
 </head>
@@ -21,7 +12,7 @@
 
 	<%@ include file="fragments/header.jsp"%>
 	<!-- El carrousel del index -->
-	<div>
+	<div class="container-fluid">
 
 		<div id="myCarousel" class="carousel slide" data-ride="carousel">
 			<ol class="carousel-indicators">
@@ -46,8 +37,7 @@
 					</div>
 				</div>
 				<div class="carousel-item">
-					<img class="second-slide"
-						src="images/slide_2.jpg"
+					<img class="second-slide" src="images/slide_2.jpg"
 						alt="Second slide">
 					<div class="container">
 						<div class="carousel-caption">
@@ -63,9 +53,7 @@
 					</div>
 				</div>
 				<div class="carousel-item">
-					<img class="third-slide"
-						src="images/slide_3.jpg"
-						alt="Third slide">
+					<img class="third-slide" src="images/slide_3.jpg" alt="Third slide">
 					<div class="container">
 						<div class="carousel-caption text-right">
 							<h1>One more for good measure.</h1>
@@ -90,20 +78,15 @@
 		</div>
 	</div>
 	<!-- El carrousel del index -->
-	<div class="row h-100 justify-content-center align-items-center">
-		<form class=" col-12 form-inline mt-2 mt-md-0" action="/buscar">
+	<div class="justify-content-center align-items-center">
+		<form class=" col-6 form-inline mt-2 mt-md-0" action="/buscar">
 			<input class="form-control mr-sm-2" type="text" name="nombre"
 				placeholder="Buscar" aria-label="Search">
 			<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar
-				anuncio</button>
+				evento</button>
 		</form>
 	</div>
-	<!-- Optional JavaScript -->
-	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-	<script
-		src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+	<%@ include file="fragments/footer.jsp"%>
 </body>
 </html>
