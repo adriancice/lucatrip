@@ -32,7 +32,7 @@
 			<h1>
 				<span id="mensaje"></span>
 			</h1>
-				<input type="password"	name="password" class="form-control" id="password"	placeholder="Password" pattern=".{6,}" title="La contraseña debe tener 6 digitos o mas" required /> 
+				<input type="password"	name="password" class="form-control" id="password"	placeholder="Password" required /> 
 				<input type="password" name="cpassword" class="form-control my-3" id="c_password" placeholder="Confirm Password" required />
 			<div class="input-group my-3">
 				<div class="custom-file">

@@ -7,6 +7,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * La clase Entity de las imagenes
+ * @author admin
+ *
+ */
 @Entity
 @Table(name = "imagenes")
 public class Imagen {

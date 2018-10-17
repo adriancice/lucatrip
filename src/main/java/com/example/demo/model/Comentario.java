@@ -10,6 +10,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * La clase Entity de los comentarios
+ * @author admin
+ *
+ */
 @Entity
 @Table(name = "comentarios")
 public class Comentario implements Serializable {
