@@ -8,7 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-@Controller(value="/general")
+@Controller(value = "/general")
 public class GlobalController {
 
 	private static final Logger logger = LoggerFactory.getLogger(GlobalController.class);
@@ -21,15 +21,14 @@ public class GlobalController {
 		return modelAndView;
 	}
 
-	
-	
 	@RequestMapping("/crearEvento")
 	public ModelAndView crearEvento(HttpServletRequest req) {
 		logger.info("crearEvento");
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("crearEvento");
 		return modelAndView;
-}
+	}
+
 	@RequestMapping("/register")
 	public ModelAndView register(HttpServletRequest req) {
 		logger.info("register");
