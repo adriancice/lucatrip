@@ -21,4 +21,20 @@ public class GlobalController {
 		return modelAndView;
 	}
 
+	@RequestMapping("/register")
+	public ModelAndView register(HttpServletRequest req) {
+		logger.info("register");
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("register");
+		return modelAndView;
+	}
+
+	@RequestMapping("/login")
+	public ModelAndView login(HttpServletRequest req) {
+		logger.info("login");
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("login");
+		return modelAndView;
+	}
+
 }
