@@ -96,9 +96,8 @@
 					alt="Card image cap">
 				<div class="card-body">
 					<h5 class="card-title border-bottom pb-3">${e.ciudad }</h5>
-					<p class="card-text">Some quick example text to build on the
-						card title and make up the bulk of the card's content.</p>
-					<a href="#" class="btn btn-sm btn-info float-right">Read more
+					<p class="card-text">${e.descripcion }.</p>
+					<a href="/verevento?id_evento=${e.idEvento}" class="btn btn-sm btn-info float-right">Read more
 						&raquo;</a>
 				</div>
 			</div>

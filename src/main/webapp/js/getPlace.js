@@ -22,9 +22,7 @@ function initialize() {
 								document.getElementById('longitud').value = place.geometry.location
 										.lng();
 								
-								
-								localStorage.setItem("latitud", place.geometry.location.lat() );
-								localStorage.setItem("longitud", place.geometry.location.lng() );
+						
 
 								console.log(document.getElementById('latitud').value);
 								console.log(document.getElementById('longitud').value);
