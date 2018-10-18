@@ -7,7 +7,7 @@ import com.example.demo.model.Evento;
 
 public interface IEventoService {
 
-	void add(Evento evento);
+	int add(Evento evento);
 
 	Boolean delete(int id);
 
@@ -18,5 +18,6 @@ public interface IEventoService {
 	Evento findById(int id);
 
 	Collection<Evento> findAll();
+
 
 }

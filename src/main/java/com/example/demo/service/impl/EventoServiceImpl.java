@@ -17,8 +17,9 @@ public class EventoServiceImpl implements IEventoService {
 	private IEventoRepository eventoRepository;
 
 	@Override
-	public void add(Evento evento) {
+	public int add(Evento evento) {
 		eventoRepository.save(evento);
+		return evento.getIdEvento();
 	}
 
 	@Override
