@@ -68,8 +68,8 @@ public class GlobalController {
 		HttpSession session = req.getSession(true);
 		ModelAndView modelAndView = new ModelAndView();
 		User user = (User) session.getAttribute("user");
-		modelAndView.addObject("listarMisEventos", eventoService.findAllById(user.getIdUser()));
-		System.out.println(eventoService.findAllById(user.getIdUser()).size());
+		modelAndView.addObject("listarMisEventos", eventoService.findAllById(2));
+		System.out.println(eventoService.findAllById(2).size());
 		System.out.println(user.getIdUser());
 		modelAndView.setViewName("verMisEventos");
 

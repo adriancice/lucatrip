@@ -57,13 +57,11 @@ public class EventoServiceImpl implements IEventoService {
 	public List<Evento> findAllById(int id) {
 		List<Evento> eventos = new ArrayList<>();
 		for (Evento e : eventoRepository.findAll()) {
-			if (e.getIdEvento() == id) {
+			if (e.getIdUser() == id) {
 				eventos.add(e);
 			}
 		}
 		return eventos;
 	}
-
-
 
 }
