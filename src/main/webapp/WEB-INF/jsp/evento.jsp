@@ -54,7 +54,7 @@
 
 	<div id="imagen" class="container text-center mt">
 
-		<img alt="" src="data:image/jpeg;base64, ${imagen }">
+		<img alt="" src="${imagen}">
 	</div>
 
 
