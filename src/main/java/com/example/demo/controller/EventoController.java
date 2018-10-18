@@ -154,6 +154,7 @@ public class EventoController {
 		req.setAttribute("descripcion", e.getDescripcion());
 		req.setAttribute("imagen", e.getImagen());
 		
+		
 		req.setAttribute("listaComentarios", listaComentarios);
 		
 	

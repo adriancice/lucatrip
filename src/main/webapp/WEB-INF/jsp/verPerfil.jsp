@@ -23,8 +23,9 @@
 						src="http://bestjquery.com/tutorial/hover-effect/demo160/images/img-1.jpg"
 						alt="">
 					<div class="box-content">
-						<h3 class="title">${name }${surname }</h3>
-						<span class="post">Web Developer</span>
+						<h2 class="title">${name } ${surname }</h2>
+						<span class="post">Web Developer</span><br>
+						<span class="post">Fecha registro: ${fecha }</span>
 					</div>
 				</div>
 			</div>
