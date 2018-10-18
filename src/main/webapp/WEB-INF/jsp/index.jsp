@@ -90,7 +90,7 @@
 	<!-- Start of card´s -->
 	<div class="container row mt-5 px-3">
 	<c:forEach var="e" items="${listaEventos}">
-		<div class="col-md-4">
+		<div class="col-md-3">
 			<div class="card">
 				<img class="card-img-top" src="//placeimg.com/280/180/tech"
 					alt="Card image cap">

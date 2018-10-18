@@ -9,6 +9,7 @@ import javax.persistence.Table;
 
 /**
  * La clase Entity de las imagenes
+ * 
  * @author admin
  *
  */

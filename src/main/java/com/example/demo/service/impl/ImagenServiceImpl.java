@@ -1,6 +1,8 @@
 package com.example.demo.service.impl;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,11 +17,8 @@ import com.example.demo.service.IImagenService;
 @Service
 public class ImagenServiceImpl implements IImagenService {
 
-	
-
 	@Autowired
 	private IImagenRepository imagenRepository;
-
 
 	@Override
 	public Imagen save(Imagen imagen) {
@@ -47,8 +46,14 @@ public class ImagenServiceImpl implements IImagenService {
 
 	@Override
 	public Collection<Imagen> findAllByIdEvento(int id) {
-		Iterable<Imagen> itr = imagenRepository.findAll();
-		return (Collection<Imagen>) itr;
+		List<Imagen> itr = new ArrayList<>();
+		for (Imagen i : imagenRepository.findAll()) {
+			if (i.getIdEvento() == id) {
+				itr.add(i);
+			}
+		}
+
+		return itr;
 	}
 
 }

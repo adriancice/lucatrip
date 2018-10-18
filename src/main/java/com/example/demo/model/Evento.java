@@ -49,14 +49,6 @@ public class Evento {
 
 	private String descripcion;
 
-	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinColumn(name = "id_imagen")
-	private List<Imagen> imagenes;
-
-	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinColumn(name = "id_comentario")
-	private List<Comentario> comentarios;
-
 	@Column(name = "create_at")
 	@JsonFormat(pattern = "yyyy-MM-dd")
 	private Date createAt;
@@ -86,30 +78,12 @@ public class Evento {
 		return longitud;
 	}
 
-	
-
 	public Date getFechaEvento() {
 		return fechaEvento;
 	}
 
 	public void setFechaEvento(Date fechaEvento) {
 		this.fechaEvento = fechaEvento;
-	}
-
-	public List<Imagen> getImagenes() {
-		return imagenes;
-	}
-
-	public void setImagenes(List<Imagen> imagenes) {
-		this.imagenes = imagenes;
-	}
-
-	public List<Comentario> getComentarios() {
-		return comentarios;
-	}
-
-	public void setComentarios(List<Comentario> comentarios) {
-		this.comentarios = comentarios;
 	}
 
 	public void setLongitud(double longitud) {
