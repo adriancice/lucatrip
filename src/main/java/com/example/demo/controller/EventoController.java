@@ -120,6 +120,7 @@ public class EventoController {
 		evento.setDescripcion(descripcion);
 		evento.setSitio(lugar);
 		evento.setImagen(url);
+		evento.setIdUser(user.getIdUser());
 		
 
 		eventoService.add(evento);

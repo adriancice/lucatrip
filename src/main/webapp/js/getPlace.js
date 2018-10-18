@@ -33,7 +33,7 @@ function initialize() {
 								
 								new google.maps.Geocoder().geocode({'latLng' : latlng}, function(results, status) {
 								    if (status == google.maps.GeocoderStatus.OK) {
-								        if (results[1]) {
+								        if (results[0]) {
 								            var country = null, countryCode = null, city = null, cityAlt = null;
 								            var c, lc, component;
 								            for (var r = 0, rl = results.length; r < rl; r += 1) {
