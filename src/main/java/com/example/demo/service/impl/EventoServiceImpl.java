@@ -56,7 +56,7 @@ public class EventoServiceImpl implements IEventoService {
 	@Override
 	public List<Evento> findAllById(int id) {
 		List<Evento> eventos = new ArrayList<>();
-		for (Evento e : eventos) {
+		for (Evento e : eventoRepository.findAll()) {
 			if (e.getIdEvento() == id) {
 				eventos.add(e);
 			}
