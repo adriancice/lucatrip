@@ -38,16 +38,20 @@ public class LoginController {
 		String pass = req.getParameter("password");
 		SHA_512 sha512 = new SHA_512();
 		String hashPass = sha512.get_SHA_512_SecurePassword(pass);
-		User u = userService.findByEmail(email);
+		User u=userService.findByEmail(email);
+		boolean exist=true;
+		if(u!=null) {
 		if (email.equals(u.getEmail()) && hashPass.equals(u.getPassword())) {
 			modelAndView.setViewName("index");
 			session.setAttribute("email", u.getEmail());
 			session.setAttribute("name", u.getName());
 			session.setAttribute("surname", u.getSurname());
-			session.setAttribute("user", u);
+		}
 		} else {
+			exist=false;
 			modelAndView.setViewName("login");
 		}
+		req.setAttribute("exist", exist);
 		return modelAndView;
 
 	}
@@ -67,8 +71,7 @@ public class LoginController {
 		System.out.println(hashPass);
 		User u = userService.findByEmail(req.getParameter("email"));
 		if (u == null) {
-			User user = new User(req.getParameter("name"), req.getParameter("surname"), hashPass,
-					req.getParameter("email"));
+			User user = new User(req.getParameter("name"), req.getParameter("surname"), hashPass,req.getParameter("email"));
 			userService.save(user);
 			existe = "no";
 		}
