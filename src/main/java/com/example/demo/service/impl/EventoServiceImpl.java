@@ -17,14 +17,39 @@ public class EventoServiceImpl implements IEventoService {
 	private IEventoRepository eventoRepository;
 
 	@Override
-	public void add(Evento evento) {
+	public int add(Evento evento) {
 		eventoRepository.save(evento);
+		return evento.getIdEvento();
 	}
 
 	@Override
 	public Collection<Evento> findAll() {
 		Iterable<Evento> itr = eventoRepository.findAll();
 		return (Collection<Evento>) itr;
+	}
+
+	@Override
+	public Boolean delete(int id) {
+		if (eventoRepository.existsById(id)) {
+			eventoRepository.deleteById(id);
+			return true;
+		}
+		return false;
+	}
+
+	@Override
+	public Evento save(Evento evento) {
+		return eventoRepository.save(evento);
+	}
+
+	@Override
+	public Evento update(Evento evento) {
+		return eventoRepository.save(evento);
+	}
+
+	@Override
+	public Evento findById(int id) {
+		return eventoRepository.findById(id).get();
 	}
 
 }

@@ -39,7 +39,7 @@ public class Evento {
 	private double longitud;
 
 	private String sitio;
-	
+
 	@Column(name = "fecha_evento")
 	private Date fechaEvento;
 
@@ -60,8 +60,6 @@ public class Evento {
 	@Column(name = "create_at")
 	@JsonFormat(pattern = "yyyy-MM-dd")
 	private Date createAt;
-	
-	
 
 	@PrePersist
 	public void PrePersist() {
@@ -89,8 +87,7 @@ public class Evento {
 	}
 
 	
-	
-	
+
 	public Date getFechaEvento() {
 		return fechaEvento;
 	}
