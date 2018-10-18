@@ -22,47 +22,48 @@ public class LoginController {
 
 	@Autowired
 	private IUserSevice userService;
-	
+
 	private HttpSession session;
 
 	/*
-	 *  Metodo  para logear usuario primero tenemos que encriptar la contraseña que nos da el usuario
-	 *  y luego compara los usuarios y las contraseñas
+	 * Metodo para logear usuario primero tenemos que encriptar la contraseña que
+	 * nos da el usuario y luego compara los usuarios y las contraseñas
 	 */
 	@RequestMapping(value = "/loginUser", method = RequestMethod.POST)
 	public ModelAndView loginUser(HttpServletRequest req) {
-		session=req.getSession(true);
+		session = req.getSession(true);
 		logger.info("loginUser");
 		ModelAndView modelAndView = new ModelAndView();
 		String email = req.getParameter("email");
 		String pass = req.getParameter("password");
 		SHA_512 sha512 = new SHA_512();
 		String hashPass = sha512.get_SHA_512_SecurePassword(pass);
-		
 		User u=userService.findByEmail(email);
+		boolean exist=true;
 		if(u!=null) {
-		if(email.equals(u.getEmail()) && hashPass.equals(u.getPassword())) {
+		if (email.equals(u.getEmail()) && hashPass.equals(u.getPassword())) {
 			modelAndView.setViewName("index");
 			session.setAttribute("email", u.getEmail());
 			session.setAttribute("name", u.getName());
 			session.setAttribute("surname", u.getSurname());
 		}
-		}else {
-			String mensaje="email o contraseña incorrecto";
-			req.setAttribute("mensaje", mensaje);
+		} else {
+			exist=false;
 			modelAndView.setViewName("login");
 		}
+		req.setAttribute("exist", exist);
 		return modelAndView;
-		
+
 	}
+
 	/*
 	 * /* metodo para registrar un usuario
 	 */
 	@RequestMapping(value = "/registerUser", method = RequestMethod.POST)
 	public ModelAndView registerUser(HttpServletRequest req) {
 		logger.info("registerUser");
-		String mensaje = "";
 		ModelAndView modelAndView = new ModelAndView();
+		String existe = "si";
 		modelAndView.setViewName("register");
 		String pass = req.getParameter("password");
 		SHA_512 sha512 = new SHA_512();
@@ -72,11 +73,9 @@ public class LoginController {
 		if (u == null) {
 			User user = new User(req.getParameter("name"), req.getParameter("surname"), hashPass,req.getParameter("email"));
 			userService.save(user);
-			mensaje = "Usuario registrado correctamente !";
-		} else {
-			mensaje = "Email ya registrado !";
+			existe = "no";
 		}
-		req.setAttribute("mensaje", mensaje);
+		req.setAttribute("existe", existe);
 		return modelAndView;
 	}
 

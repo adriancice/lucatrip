@@ -10,7 +10,6 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 <!-- Bootstrap CSS -->
-<link href="<c:url value="/resources/alert/alert.js"/>" rel="stylesheet">
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 
@@ -20,17 +19,9 @@
 
 	<%@ include file="fragments/header.jsp"%>
 
-	
 	<div class="container w-50 p-3">
-		<c:if test="${exist==false}">
-			<div class="alert alert-danger alert-dismissible show" role="alert">
-				<strong>Fallo al loguear usuario o contraseña incorrecto</strong>
-				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-			</div>
-		</c:if>
-			<hr>
+		<hr>
+		<!-- Register form Bootstrap4 -->
 		<form class="form-signin" id="registerForm" action="/loginUser"
 			method="post">
 			<h5>${mensaje}</h5>
@@ -38,9 +29,12 @@
 			<hr>
 			<input type="text" name="email" class="form-control" placeholder="email" required autofocus /> 
 			<input type="password" name="password" class="form-control my-2" placeholder="Password"required /> 
-			<input type="submit" value="Login" class="btn btn-lg btn-success btn-block"  />
+			<input type="submit" value="Login" class="btn btn-lg btn-success btn-block" />
 		</form>
 		<!-- End register form Bootstrap4 -->
+	</div>
+	<div class="container">
+		<h5>${mensaje}</h5>
 	</div>
 	<!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
