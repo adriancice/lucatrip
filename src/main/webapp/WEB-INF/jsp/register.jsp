@@ -15,7 +15,7 @@
 		<hr>
 		<!-- Register form Bootstrap4 -->
 		<form class="form-signin" id="registerForm" action="/registerUser"
-			method="post">
+			method="post" enctype="multipart/form-data">
 			<h1 class="h3 mb-3 font-weight-normal text-center">Alta usuario</h1>
 
 			<c:if test="${existe.equals('no') }">
@@ -51,8 +51,7 @@
 				id="c_password" placeholder="Confirm Password" required />
 
 			<div class="form-group">
-				<input type="file" class="form-control-file"
-					id="exampleFormControlFile1" name="fotoPerfil">
+				<input type="file" class="form-control-file" name="file">
 			</div>
 			<input type="submit" value="Create account"
 				class="btn btn-lg btn-success btn-block" />

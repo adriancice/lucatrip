@@ -1,5 +1,10 @@
 package com.example.demo.controller;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -9,6 +14,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.demo.model.User;
@@ -67,27 +74,44 @@ public class LoginController {
 	 * /* metodo para registrar un usuario
 	 */
 	@RequestMapping(value = "/registerUser", method = RequestMethod.POST)
-	public ModelAndView registerUser(HttpServletRequest req) {
+	public ModelAndView registerUser(HttpServletRequest req, @RequestParam("file") MultipartFile foto) {
 		logger.info("registerUser");
 		ModelAndView modelAndView = new ModelAndView();
 		String existe = "si";
 		String mensaje = "";
+		String mensageFoto = "";
 		modelAndView.setViewName("register");
 		String pass = req.getParameter("password");
 		String conf_pass = req.getParameter("cpassword");
+		User u = userService.findByEmail(req.getParameter("email"));
 		if (pass != conf_pass) {
 			mensaje += "Las contraseñas no coinciden";
 		}
 		if (!pass.matches(Pattern.password)) {
 			mensaje += "La contraseña está en formato incorrecta mayor que 6 caracteres \n";
 		}
+
 		SHA_512 sha512 = new SHA_512();
 		String hashPass = sha512.get_SHA_512_SecurePassword(pass);
-		System.out.println(hashPass);
-		User u = userService.findByEmail(req.getParameter("email"));
+
 		if (u == null) {
 			User user = new User(req.getParameter("name"), req.getParameter("surname"), hashPass,
 					req.getParameter("email"));
+			// si hay foto la añadimos
+			if (!foto.isEmpty()) {
+				Path directorioRecursos = Paths.get("src//main//webapp//images/user");
+				String rootPath = directorioRecursos.toFile().getAbsolutePath();
+				try {
+					byte[] bytes = foto.getBytes();
+					Path rutaCompleta = Paths.get(rootPath + "/" + foto.getOriginalFilename());
+					Files.write(rutaCompleta, bytes);
+					mensageFoto = "Has subido ok (" + foto.getOriginalFilename() + ")";
+					user.setFoto(foto.getOriginalFilename());
+				} catch (IOException e) {
+					System.err.println("error foto");
+					e.printStackTrace();
+				}
+			}
 			userService.save(user);
 			mensaje = "Genial! Te has registrado perfectamente";
 			existe = "no";
@@ -96,7 +120,11 @@ public class LoginController {
 		}
 		req.setAttribute("mensaje", mensaje);
 		req.setAttribute("existe", existe);
+		req.setAttribute("mensageFoto", mensageFoto);
 		return modelAndView;
 	}
-
+	
+	
+	
+	
 }

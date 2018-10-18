@@ -19,13 +19,19 @@
 		<div class="row mt-30">
 			<div class="col-md-4 ">
 				<div class="box5">
-					<img
-						src="http://bestjquery.com/tutorial/hover-effect/demo160/images/img-1.jpg"
-						alt="">
+					<c:choose>
+						<c:when test="${user.foto != null}">
+							<img src="/images/user/${user.foto }" alt="${user.foto }">
+						</c:when>
+						<c:otherwise>
+							<img
+								src="https://d500.epimg.net/cincodias/imagenes/2016/07/04/lifestyle/1467646262_522853_1467646344_noticia_normal.jpg">
+						</c:otherwise>
+					</c:choose>
 					<div class="box-content">
-						<h2 class="title">${name } ${surname }</h2>
-						<span class="post">Web Developer</span><br>
-						<span class="post">Fecha registro: ${fecha }</span>
+						<h2 class="title">${name }${surname }</h2>
+						<span class="post">Web Developer</span><br> <span
+							class="post">Fecha registro: ${fecha }</span>
 					</div>
 				</div>
 			</div>
@@ -45,7 +51,7 @@
 				<div class="card border-0">
 					<div class="card-body text-center">
 						<i class="fa fa-phone fa-5x mb-3" aria-hidden="true"></i>
-						<h4 class="text-uppercase mb-5">call us</h4>
+						<h4 class="text-uppercase mb-5">call me</h4>
 						<p>+8801683615582</p>
 					</div>
 				</div>
@@ -56,6 +62,16 @@
 						<i class="fa fa-globe fa-5x mb-3" aria-hidden="true"></i>
 						<h4 class="text-uppercase mb-5">email</h4>
 						<a href="mailto:#">${email }</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-6 col-lg-3 my-5">
+				<div class="card border-0">
+					<div class="card-body text-center">
+						<i class="fa fa-edit fa-5x mb-3" aria-hidden="true"></i>
+						<h4 class="text-uppercase mb-5">edit user</h4>
+						<a href="/editUser">EDITAR USER</a>
+
 					</div>
 				</div>
 			</div>

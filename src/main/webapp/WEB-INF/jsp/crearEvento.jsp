@@ -4,7 +4,7 @@
 <!doctype html>
 <!-- My propio css -->
 <html lang="en">
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 
 <head>
 <!-- Required meta tags -->
@@ -18,8 +18,9 @@
 
 
 <title>LucaTrip</title>
-	<script src="http://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyBa-NxlN1zc0dlp5bdYBzt1xzS2F1ZVlro"
-		type="text/javascript"></script>
+<script
+	src="http://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyBa-NxlN1zc0dlp5bdYBzt1xzS2F1ZVlro"
+	type="text/javascript"></script>
 </head>
 <body>
 
@@ -33,38 +34,33 @@
 		</div>
 
 		<div id="buscador" class="container text-center mt">
-			<h3>Lugar</h3>
+			<h3>Busca un lugar</h3>
 
 
-			<input id="searchTextField" type="text" size="50" placeholder="Elige un lugar" autocomplete="on" runat="server" required="required" />
-				<input type="hidden" id="latitud" name="latitud" /> 
-				<input type="hidden" id="longitud" name="longitud" /> 
-				<input type="hidden" id="lugar" name="lugar" /> 
-				<input type="hidden" id="imagen" name="imagen" />
-				<input type="hidden" id="ciudad" name="ciudad" />
-				<input type="hidden" id="pais" name="pais" />
-				<input type="hidden" id="url" name="url" />
-				
-				
-				
-
-
-
+			<input id="searchTextField" type="text" size="50"
+				placeholder="Elige un lugar" autocomplete="on" runat="server"
+				required="required" /> <input type="hidden" id="latitud"
+				name="latitud" /> <input type="hidden" id="longitud"
+				name="longitud" /> <input type="hidden" id="lugar" name="lugar" />
+			<input type="hidden" id="imagen" name="imagen" /> <input
+				type="hidden" id="ciudad" name="ciudad" /> <input type="hidden"
+				id="pais" name="pais" /> <input type="hidden" id="url" name="url" />
 		</div>
 
 
 		<div id="descripcion" class="container text-center mt">
 			<h3>Descripcion del evento</h3>
 
-			<textarea  required="required" placeholder="Descripcion del evento" style="min-width: 40%"
-				id="descripcion" name="descripcion"></textarea>
+			<textarea required="required" placeholder="Descripcion del evento"
+				style="min-width: 40%" id="descripcion" name="descripcion"></textarea>
 
 
 		</div>
 
 		<div id="fecha" class="container text-center mt">
 			<h3>Fecha del evento</h3>
-			<input required="required" type="datetime-local" id="fecha" name="fecha"  max="9999-12-12T00:00:00.00">
+			<input required="required" type="datetime-local" id="fecha"
+				name="fecha" max="9999-12-12T00:00:00.00">
 
 
 		</div>
@@ -80,7 +76,8 @@
 							class="btn btn-default btn-file"> Browse <input
 								type="file" id="imgInp">
 						</span>
-						</span> <input required="required" type="text" class="form-control" readonly>
+						</span> <input required="required" type="text" class="form-control"
+							readonly>
 					</div>
 					<img id='img-upload' />
 				</div>
@@ -94,43 +91,9 @@
 
 	</form>
 
+	<script src="js/getPlace.js"></script>
+	<script src="js/setImage.js"></script>
 
-
-
-
-
-
-
-	<!-- Optional JavaScript
-	
-	 -->
-
-		<script src="js/getPlace.js"></script>
-		 <script src="js/setImage.js"></script>
-		 
-		
-	
-
-
-
-
-
-
-	
-	
-	
-	
-	
-	
-
-
-
-
-	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-	<script
-		src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-		
+	<%@ include file="fragments/footer.jsp"%>
 </body>
 </html>

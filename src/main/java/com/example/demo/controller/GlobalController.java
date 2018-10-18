@@ -8,10 +8,12 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.demo.model.User;
 import com.example.demo.service.IEventoService;
+import com.example.demo.service.IUserSevice;
 
 @Controller
 public class GlobalController {
@@ -21,8 +23,11 @@ public class GlobalController {
 	@Autowired
 	private IEventoService eventoService;
 
+	@Autowired
+	private IUserSevice userService;
+
 	@RequestMapping("/")
-	public ModelAndView index(HttpServletRequest req) {
+	public ModelAndView index(HttpServletRequest req, @RequestParam(name = "page", defaultValue = "0") int page) {
 		logger.info("index");
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("index");
@@ -57,8 +62,12 @@ public class GlobalController {
 	@RequestMapping("/verPerfil")
 	public ModelAndView verPerfil(HttpServletRequest req) {
 		logger.info("verPerfil");
+		HttpSession session = req.getSession(true);
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("verPerfil");
+		User user = (User) session.getAttribute("user");
+		modelAndView.addObject("user", userService.findById(user.getIdUser()));
+		modelAndView.addObject("url", "/images/user/");
 		return modelAndView;
 	}
 
@@ -70,6 +79,14 @@ public class GlobalController {
 		User user = (User) session.getAttribute("user");
 		modelAndView.addObject("listarMisEventos", eventoService.findAllById(user.getIdUser()));
 		modelAndView.setViewName("verMisEventos");
+		return modelAndView;
+	}
+
+	@RequestMapping("/paginator")
+	public ModelAndView paginator(HttpServletRequest req) {
+		logger.info("paginator");
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("paginator");
 		return modelAndView;
 	}
 
