@@ -6,6 +6,7 @@ import com.example.demo.model.Imagen;
 
 public interface IImagenService {
 
+
 	Imagen save(Imagen imagen);
 
 	Boolean delete(int id);

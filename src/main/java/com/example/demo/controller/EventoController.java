@@ -1,35 +1,47 @@
 package com.example.demo.controller;
 
+import java.io.UnsupportedEncodingException;
 import java.util.Date;
 import java.util.StringTokenizer;
 
-import javax.script.ScriptEngine;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.demo.model.Evento;
+import com.example.demo.model.Imagen;
 import com.example.demo.service.IEventoService;
+import com.example.demo.service.IImagenService;
 
 @Controller
 public class EventoController {
 
 	private static final Logger logger = LoggerFactory.getLogger(EventoController.class);
-
 	@Autowired
 	private IEventoService eventoService;
+	
+	@Autowired
+	private IImagenService imagenService;
 
 	@RequestMapping("/crearEventoNuevo")
 	public ModelAndView register(HttpServletRequest req) {
+		try {
+			req.setCharacterEncoding("UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		logger.info("/crearEventoNuevo");
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("register");
+		modelAndView.setViewName("crearEvento");
+		HttpSession session = req.getSession(true);
 		
 		String lugar = req.getParameter("lugar");
 		String latitud = (String)req.getParameter("latitud");
@@ -82,6 +94,14 @@ public class EventoController {
 		System.err.println("pais: "+pais);
 		
 		
+		
+		for (int i = 0; i <= pais.length()-1; i++) {
+			System.err.println(pais.charAt(i));
+				
+			}
+		System.err.println(pais);
+		
+		
 		Date fechaEvento = new Date();
 		fechaEvento.setDate(Integer.parseInt(dia));
 		fechaEvento.setHours(Integer.parseInt(hora));
@@ -97,13 +117,26 @@ public class EventoController {
 		evento.setLongitud(Double.parseDouble(longitud));
 		evento.setCiudad(ciudad);
 		evento.setPais(pais);
+		evento.setFechaEvento(fechaEvento);
+		evento.setDescripcion(descripcion);
+		evento.setSitio(lugar);
+		
+		Imagen imagenobj = new Imagen();
+		int id_evento = eventoService.add(evento);
+		imagenobj.setImagen(imagencortada);
+		imagenobj.setIdEvento(id_evento);
+
+		imagenService.save(imagenobj);
+		
+		
 //		evento.set
 //		eventoService.add(evento);
 		
 		
 		return modelAndView;
-	}
+	
 
 
 
 	}
+}

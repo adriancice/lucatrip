@@ -81,6 +81,8 @@ public class Evento {
 		return longitud;
 	}
 
+	
+
 	public Date getFechaEvento() {
 		return fechaEvento;
 	}
