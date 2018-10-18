@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.example.demo.model.User;
 import com.example.demo.service.IEventoService;
 
 @Controller
@@ -56,6 +59,19 @@ public class GlobalController {
 		logger.info("verPerfil");
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("verPerfil");
+		return modelAndView;
+	}
+
+	@RequestMapping("/verMisEventos")
+	public ModelAndView verMisEventos(HttpServletRequest req) {
+		logger.info("verMisEventos");
+		HttpSession session = req.getSession(true);
+		ModelAndView modelAndView = new ModelAndView();
+		User user = (User) session.getAttribute("user");
+		modelAndView.addObject("listarMisEventos", eventoService.findAllById(1));
+		System.out.println(user.getIdUser());
+		modelAndView.setViewName("verMisEventos");
+
 		return modelAndView;
 	}
 

@@ -1,21 +1,14 @@
 package com.example.demo.model;
 
 import java.util.Date;
-import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -50,6 +43,9 @@ public class Evento {
 	private String descripcion;
 
 	private String imagen;
+
+	@Column(name = "id_user")
+	private int idUser;
 
 	@Column(name = "create_at")
 	@JsonFormat(pattern = "yyyy-MM-dd")
@@ -138,6 +134,14 @@ public class Evento {
 
 	public void setImagen(String imagen) {
 		this.imagen = imagen;
+	}
+
+	public int getIdUser() {
+		return idUser;
+	}
+
+	public void setIdUser(int idUser) {
+		this.idUser = idUser;
 	}
 
 }

@@ -26,7 +26,7 @@
 						<form action="/logout">
 							<button class="dropdown-item" type="submit">Logout</button>
 							<a class="dropdown-item" href="/crearEvento">Crear evento</a> <a
-								class="dropdown-item" href="/misEventos">Ver mis eventos</a> <hr><a
+								class="dropdown-item" href="/verMisEventos">Ver mis eventos</a> <hr><a
 								class="dropdown-item" href="/verPerfil">Ver mi perfil</a>
 						</form>
 					</div>
