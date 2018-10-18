@@ -49,6 +49,8 @@ public class Evento {
 
 	private String descripcion;
 
+	private String imagen;
+
 	@Column(name = "create_at")
 	@JsonFormat(pattern = "yyyy-MM-dd")
 	private Date createAt;
@@ -128,6 +130,14 @@ public class Evento {
 
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
+	}
+
+	public String getImagen() {
+		return imagen;
+	}
+
+	public void setImagen(String imagen) {
+		this.imagen = imagen;
 	}
 
 }

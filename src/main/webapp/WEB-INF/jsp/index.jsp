@@ -89,20 +89,21 @@
 
 	<!-- Start of card´s -->
 	<div class="container-fluid row mt-5 px-3">
-	<c:forEach var="e" items="${listaEventos}">
-		<div class="col-md-3">
-			<div class="card">
-				<img class="card-img-top" src="//placeimg.com/280/180/tech"
-					alt="Card image cap">
-				<div class="card-body">
-					<h5 class="card-title border-bottom pb-3">${e.sitio }</h5>
-					<strong>${e.ciudad }</strong>
-					<p class="card-text">${e.descripcion }.</p>
-					<a href="/verevento?id_evento=${e.idEvento}" class="btn btn-sm btn-info float-right">Read more
-						&raquo;</a>
+		<c:forEach var="e" items="${listaEventos}">
+			<div class="col-md-3">
+				<div class="card">
+
+					<img class="card-img-top" src="${e.imagen }" alt="Card image cap">
+					<div class="card-body">
+						<h5 class="card-title border-bottom pb-3">${e.sitio }</h5>
+						<h5 class="card-title border-bottom pb-3">${e.idImagen }</h5>
+						<strong>${e.ciudad }</strong>
+						<p class="card-text">${e.descripcion }.</p>
+						<a href="/verevento?id_evento=${e.idEvento}"
+							class="btn btn-sm btn-info float-right">Read more &raquo;</a>
+					</div>
 				</div>
 			</div>
-		</div>
 		</c:forEach>
 	</div>
 	<!-- end of card -->
