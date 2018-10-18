@@ -1,5 +1,6 @@
 package com.example.demo.service.impl;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -51,5 +52,18 @@ public class EventoServiceImpl implements IEventoService {
 	public Evento findById(int id) {
 		return eventoRepository.findById(id).get();
 	}
+
+	@Override
+	public List<Evento> findAllById(int id) {
+		List<Evento> eventos = new ArrayList<>();
+		for (Evento e : eventos) {
+			if (e.getIdEvento() == id) {
+				eventos.add(e);
+			}
+		}
+		return eventos;
+	}
+
+
 
 }

@@ -92,11 +92,9 @@
 		<c:forEach var="e" items="${listaEventos}">
 			<div class="col-md-3">
 				<div class="card">
-
 					<img class="card-img-top" src="${e.imagen }" alt="Card image cap">
 					<div class="card-body">
 						<h5 class="card-title border-bottom pb-3">${e.sitio }</h5>
-						<h5 class="card-title border-bottom pb-3">${e.idImagen }</h5>
 						<strong>${e.ciudad }</strong>
 						<p class="card-text">${e.descripcion }.</p>
 						<a href="/verevento?id_evento=${e.idEvento}"

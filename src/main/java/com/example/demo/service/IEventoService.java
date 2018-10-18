@@ -18,6 +18,8 @@ public interface IEventoService {
 	Evento findById(int id);
 
 	Collection<Evento> findAll();
+	
+	List<Evento> findAllById(int id);
 
 
 }
