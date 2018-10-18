@@ -23,9 +23,6 @@
 </head>
 <body>
 
-
-
-
 	<%@ include file="fragments/header.jsp"%>
 
 

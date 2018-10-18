@@ -95,7 +95,8 @@
 				<img class="card-img-top" src="//placeimg.com/280/180/tech"
 					alt="Card image cap">
 				<div class="card-body">
-					<h5 class="card-title border-bottom pb-3">${e.ciudad }</h5>
+					<h5 class="card-title border-bottom pb-3">${e.sitio }</h5>
+					<strong>${e.ciudad }</strong>
 					<p class="card-text">${e.descripcion }.</p>
 					<a href="/verevento?id_evento=${e.idEvento}" class="btn btn-sm btn-info float-right">Read more
 						&raquo;</a>
