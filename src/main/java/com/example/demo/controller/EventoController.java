@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.StringTokenizer;
 
@@ -15,7 +16,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.example.demo.model.Comentario;
 import com.example.demo.model.Evento;
+import com.example.demo.model.User;
+import com.example.demo.service.IComentarioService;
 import com.example.demo.service.IEventoService;
 
 @Controller
@@ -25,6 +29,9 @@ public class EventoController {
 	@Autowired
 	private IEventoService eventoService;
 
+	@Autowired
+	private IComentarioService comentarioService;
+	
 	@RequestMapping("/crearEventoNuevo")
 	public ModelAndView register(HttpServletRequest req) {
 		try {
@@ -38,7 +45,7 @@ public class EventoController {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("crearEvento");
 		HttpSession session = req.getSession(true);
-
+		User user = (User) session.getAttribute("user");
 		String lugar = req.getParameter("lugar");
 		String latitud = (String) req.getParameter("latitud");
 		String longitud = (String) req.getParameter("longitud");
@@ -48,7 +55,9 @@ public class EventoController {
 
 		String imagen = (String) req.getParameter("imagen");
 		String fecha = (String) req.getParameter("fecha");
-
+		String url = req.getParameter("url");
+		System.err.println("url: "+ url);
+			
 		String imagencortada = imagen.substring(imagen.lastIndexOf(",") + 1, imagen.length());
 		System.err.println(
 				"lugar " + lugar + " latitud " + latitud + " longitud " + longitud + " descripcion " + descripcion);
@@ -110,7 +119,8 @@ public class EventoController {
 		evento.setFechaEvento(fechaEvento);
 		evento.setDescripcion(descripcion);
 		evento.setSitio(lugar);
-		evento.setImagen(imagen);
+		evento.setImagen(url);
+		
 
 		eventoService.add(evento);
 
@@ -130,14 +140,22 @@ public class EventoController {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("evento");
 		HttpSession session = req.getSession(true);
-
+		
 		Evento e = eventoService.findById(id_evento);
-
+		//conseguir likes y eventos con los repsectivos servicios
+		ArrayList<Comentario> listaComentarios = comentarioService.findComentariosByIdEvento(id_evento);
+		
 		req.setAttribute("lugar", e.getSitio());
 		req.setAttribute("pais", e.getPais());
 		req.setAttribute("ciudad", e.getCiudad());
 		req.setAttribute("latitud", e.getLatitud());
 		req.setAttribute("longitud", e.getLongitud());
+		req.setAttribute("descripcion", e.getDescripcion());
+		req.setAttribute("imagen", e.getImagen());
+		
+		req.setAttribute("listaComentarios", listaComentarios);
+		
+	
 
 		System.err.println(id_evento);
 

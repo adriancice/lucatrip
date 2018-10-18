@@ -43,6 +43,8 @@
 				<input type="hidden" id="imagen" name="imagen" />
 				<input type="hidden" id="ciudad" name="ciudad" />
 				<input type="hidden" id="pais" name="pais" />
+				<input type="hidden" id="url" name="url" />
+				
 				
 				
 

@@ -26,7 +26,10 @@ function initialize() {
 
 								console.log(document.getElementById('latitud').value);
 								console.log(document.getElementById('longitud').value);
-								
+								var photos = place.photos;
+								var url = photos[1].getUrl({'maxWidth': 600, 'maxHeight': 600});
+								document.getElementById('url').value =  photos[0].getUrl({'maxWidth': 600, 'maxHeight': 600});
+
 								
 								new google.maps.Geocoder().geocode({'latLng' : latlng}, function(results, status) {
 								    if (status == google.maps.GeocoderStatus.OK) {

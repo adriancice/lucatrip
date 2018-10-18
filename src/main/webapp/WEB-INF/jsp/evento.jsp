@@ -27,7 +27,8 @@
       #map {
         height: 400px;  /* The height is 400 pixels */
         width: 30%;  /* The width is the width of the web page */
-       }
+        margin: 0 auto 0 auto;
+               }
     </style>
     
 </head>
@@ -63,8 +64,8 @@
 
 
 	<div id="descripcion" class="container text-center mt">
-
-		<a>DESCRIPCION</a>
+		<h3>DESCRIPCION DEL EVENTO</h3>
+		<a>${descripcion}</a>
 	</div>
 
 
@@ -77,9 +78,13 @@
 
 
 	<div id="comentarios" class="container text-center mt">
-
-		<a>Comentario</a> <br> <a>Comentario</a> <br> <a>Comentario</a>
-		<br> <a>Comentario</a> <br>
+		<h3>¿Que comenta la gente?</h3>
+<c:forEach var="c" items="${listaComentarios}">
+			<div class="col-md-3">
+		
+				${c.comentario}
+			</div>
+		</c:forEach>
 
 <!--  -->
 
