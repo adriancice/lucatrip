@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.StringTokenizer;
 
@@ -12,6 +13,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.demo.model.Evento;
@@ -52,8 +54,10 @@ public class EventoController {
 
 		String imagen = (String) req.getParameter("imagen");
 		String fecha = (String) req.getParameter("fecha");
+		
 		String imagencortada = imagen.substring(imagen.lastIndexOf(",")+1, imagen.length());
 		System.err.println("lugar "+ lugar+" latitud "+latitud+" longitud "+longitud + " descripcion "+descripcion);
+		System.err.println("imagen: "+imagen);
 		System.err.println(imagencortada);
 		System.err.println(fecha);
 		String año = "";
@@ -94,12 +98,7 @@ public class EventoController {
 		System.err.println("pais: "+pais);
 		
 		
-		
-		for (int i = 0; i <= pais.length()-1; i++) {
-			System.err.println(pais.charAt(i));
-				
-			}
-		System.err.println(pais);
+	
 		
 		
 		Date fechaEvento = new Date();
@@ -125,18 +124,52 @@ public class EventoController {
 		int id_evento = eventoService.add(evento);
 		imagenobj.setImagen(imagencortada);
 		imagenobj.setIdEvento(id_evento);
-
 		imagenService.save(imagenobj);
 		
 		
-//		evento.set
-//		eventoService.add(evento);
+		eventoService.add(evento);
 		
 		
 		return modelAndView;
 	
 
 
-
 	}
+	
+	@RequestMapping("/verevento")
+	public ModelAndView verevento(HttpServletRequest req, @RequestParam("id_evento") int id_evento) {
+		try {
+			req.setCharacterEncoding("UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		logger.info("/verevento");
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("evento");
+		HttpSession session = req.getSession(true);
+		
+		Evento e = eventoService.findById(id_evento);
+		ArrayList<Imagen> imagenes = (ArrayList<Imagen>) imagenService.findAllByIdEvento(id_evento);
+		Imagen i = imagenes.get(0);
+		
+		System.out.println(i.getIdImagen());
+		
+		req.setAttribute("lugar", e.getSitio());
+		req.setAttribute("pais", e.getPais());
+		req.setAttribute("ciudad", e.getCiudad());
+		req.setAttribute("imagen", i.getImagen());
+		req.setAttribute("latitud", e.getLatitud());
+		req.setAttribute("longitud", e.getLongitud());
+
+
+		
+		
+		System.err.println(id_evento);
+		
+		
+		
+		
+		return modelAndView;
+}
 }
