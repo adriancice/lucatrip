@@ -89,8 +89,6 @@ public class Evento {
 	}
 
 	
-	
-	
 	public Date getFechaEvento() {
 		return fechaEvento;
 	}
