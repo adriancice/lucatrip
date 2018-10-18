@@ -30,31 +30,56 @@
 			</div>
 		</div>
 	</div>
-
-
 	
-
-	<!-- Evnetos del usuario -->
-	<h3 class="text-center">Eventos</h3>
-	<!-- Start of card´s -->
-	<div class="container row mt-5 px-3">
-		<c:forEach var="e" items="${listaEventos}">
-			<div class="col-md-4">
-				<div class="card">
-					<img class="card-img-top" src="//placeimg.com/280/180/tech"
-						alt="Card image cap">
-					<div class="card-body">
-						<h5 class="card-title border-bottom pb-3">${e.ciudad }</h5>
-						<p class="card-text">Some quick example text to build on the
-							card title and make up the bulk of the card's content.</p>
-						<a href="#" class="btn btn-sm btn-info float-right">Read more
-							&raquo;</a>
+	<h3 class="text-center">Eventos del usuario</h3>
+	
+	<section id="contact">
+		<div class="container">
+			<h3 class="text-center text-uppercase">contact us</h3>
+			<p class="text-center w-75 m-auto">Lorem ipsum dolor sit amet,
+				consectetur adipiscing elit. Mauris interdum purus at sem ornare
+				sodales. Morbi leo nulla, pharetra vel felis nec, ullamcorper
+				condimentum quam.</p>
+			<div class="row">
+				<div class="col-sm-12 col-md-6 col-lg-3 my-5">
+					<div class="card border-0">
+						<div class="card-body text-center">
+							<i class="fa fa-phone fa-5x mb-3" aria-hidden="true"></i>
+							<h4 class="text-uppercase mb-5">call us</h4>
+							<p>+8801683615582,+8801750603409</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-12 col-md-6 col-lg-3 my-5">
+					<div class="card border-0">
+						<div class="card-body text-center">
+							<i class="fa fa-map-marker fa-5x mb-3" aria-hidden="true"></i>
+							<h4 class="text-uppercase mb-5">office loaction</h4>
+							<address>Suite 02, Level 12, Sahera Tropical Center</address>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-12 col-md-6 col-lg-3 my-5">
+					<div class="card border-0">
+						<div class="card-body text-center">
+							<i class="fa fa-map-marker fa-5x mb-3" aria-hidden="true"></i>
+							<h4 class="text-uppercase mb-5">office loaction</h4>
+							<address>Suite 02, Level 12, Sahera Tropical Center</address>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-12 col-md-6 col-lg-3 my-5">
+					<div class="card border-0">
+						<div class="card-body text-center">
+							<i class="fa fa-globe fa-5x mb-3" aria-hidden="true"></i>
+							<h4 class="text-uppercase mb-5">email</h4>
+							<p>http://al.a.noman1416@gmail.com</p>
+						</div>
 					</div>
 				</div>
 			</div>
-		</c:forEach>
-	</div>
-	<!-- end of card -->
+		</div>
+	</section>
 
 	<%@ include file="fragments/footer.jsp"%>
 

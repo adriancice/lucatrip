@@ -9,6 +9,7 @@ import javax.persistence.Table;
 
 /**
  * La clase Entity de los like´s
+ * 
  * @author admin
  *
  */
@@ -50,7 +51,5 @@ public class Like {
 	public void setIdUser(int idUser) {
 		this.idUser = idUser;
 	}
-	
-	
-	
+
 }

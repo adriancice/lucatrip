@@ -49,13 +49,8 @@ public class Evento {
 
 	private String descripcion;
 
-	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinColumn(name = "id_imagen")
-	private List<Imagen> imagenes;
-
-	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinColumn(name = "id_comentario")
-	private List<Comentario> comentarios;
+	@Column(name = "id_imagen")
+	private int idImagen;
 
 	@Column(name = "create_at")
 	@JsonFormat(pattern = "yyyy-MM-dd")
@@ -92,22 +87,6 @@ public class Evento {
 
 	public void setFechaEvento(Date fechaEvento) {
 		this.fechaEvento = fechaEvento;
-	}
-
-	public List<Imagen> getImagenes() {
-		return imagenes;
-	}
-
-	public void setImagenes(List<Imagen> imagenes) {
-		this.imagenes = imagenes;
-	}
-
-	public List<Comentario> getComentarios() {
-		return comentarios;
-	}
-
-	public void setComentarios(List<Comentario> comentarios) {
-		this.comentarios = comentarios;
 	}
 
 	public void setLongitud(double longitud) {
@@ -152,6 +131,14 @@ public class Evento {
 
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
+	}
+
+	public int getIdImagen() {
+		return idImagen;
+	}
+
+	public void setIdImagen(int idImagen) {
+		this.idImagen = idImagen;
 	}
 
 }

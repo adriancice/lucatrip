@@ -44,11 +44,7 @@ public class User {
 	private String email;
 
 	private String foto;
-	
-	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinColumn(name = "id_user")
-	private List<Like> likes;
-	
+
 	@Column(name = "create_at")
 	@Temporal(TemporalType.DATE)
 	@JsonFormat(pattern = "yyyy-MM-dd")

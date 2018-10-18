@@ -24,6 +24,7 @@ public class Imagen {
 	@Column(name = "id_evento")
 	private int idEvento;
 
+	
 	private String imagen;
 
 	public int getIdImagen() {

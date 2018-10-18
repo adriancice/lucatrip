@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.demo.model.User;
+import com.example.demo.service.IEventoService;
 import com.example.demo.service.IUserSevice;
 import com.example.demo.util.SHA_512;
 
@@ -20,6 +21,9 @@ public class LoginController {
 
 	private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
 
+	@Autowired
+	private IEventoService eventoService;
+	
 	@Autowired
 	private IUserSevice userService;
 
@@ -46,6 +50,7 @@ public class LoginController {
 			session.setAttribute("email", u.getEmail());
 			session.setAttribute("name", u.getName());
 			session.setAttribute("surname", u.getSurname());
+			modelAndView.addObject("listaEventos", eventoService.findAll());
 		}
 		} else {
 			exist=false;
