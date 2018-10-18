@@ -33,7 +33,7 @@
 								$('#img-upload').attr('src', e.target.result);
 								document.getElementById('imagen').value =('src', e.target.result);
 							}
-
+							
 							reader.readAsDataURL(input.files[0]);
 						}
 					}

@@ -1,5 +1,6 @@
 package com.example.demo.service.impl;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,6 +45,12 @@ public class ComentarioServiceImpl implements IComentarioService {
 	public Collection<Comentario> findAllById(int id) {
 		Iterable<Comentario> itr = comentarioRepository.findAll();
 		return (Collection<Comentario>) itr;
+	}
+	
+	@Override
+	public ArrayList<Comentario> findComentariosByIdEvento(int id_evento) {
+		ArrayList<Comentario> itr = comentarioRepository.findByIdEvento(id_evento);
+		return itr;
 	}
 
 }
