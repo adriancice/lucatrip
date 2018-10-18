@@ -9,6 +9,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.StringTokenizer;
 
+import javax.script.ScriptEngine;
 import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
@@ -44,6 +45,8 @@ public class EventoController {
 		String longitud =(String) req.getParameter("longitud");
 		String descripcion = (String) req.getParameter("descripcion");
 		String ciudad = (String) req.getParameter("ciudad");
+		String pais = (String) req.getParameter("pais");
+
 		String imagen = (String) req.getParameter("imagen");
 		String fecha = (String) req.getParameter("fecha");
 		String imagencortada = imagen.substring(imagen.lastIndexOf(",")+1, imagen.length());
@@ -85,6 +88,9 @@ public class EventoController {
 		System.err.println("año "+año + " mes "+mes+ " dia "+dia);
 		System.err.println("hora "+hora + " minuto "+minuto);
 		System.err.println("ciudad: "+ciudad);
+		System.err.println("pais: "+pais);
+		
+		
 		Date fechaEvento = new Date();
 		fechaEvento.setDate(Integer.parseInt(dia));
 		fechaEvento.setHours(Integer.parseInt(hora));
@@ -92,15 +98,18 @@ public class EventoController {
 		fechaEvento.setMonth(Integer.parseInt(mes));
 		fechaEvento.setYear(Integer.parseInt(año));
 
-	
+		
+		
 		//INSERTAR EN BASE DE DATOS
 		Evento evento = new Evento();
 		evento.setLatitud(Double.parseDouble(latitud));
 		evento.setLongitud(Double.parseDouble(longitud));
-		evento.setSitio(lugar);
+		evento.setCiudad(ciudad);
+		evento.setPais(pais);
 //		evento.set
 //		eventoService.add(evento);
-
+		
+		
 		return modelAndView;
 	}
 

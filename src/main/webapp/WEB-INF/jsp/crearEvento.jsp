@@ -17,6 +17,8 @@
 
 
 <title>LucaTrip</title>
+	<script src="http://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyBa-NxlN1zc0dlp5bdYBzt1xzS2F1ZVlro"
+		type="text/javascript"></script>
 </head>
 <body>
 
@@ -42,6 +44,8 @@
 				<input type="hidden" id="lugar" name="lugar" /> 
 				<input type="hidden" id="imagen" name="imagen" />
 				<input type="hidden" id="ciudad" name="ciudad" />
+				<input type="hidden" id="pais" name="pais" />
+				
 				
 
 
@@ -97,97 +101,28 @@
 
 
 
-	<!-- Optional JavaScript -->
+	<!-- Optional JavaScript
+				<script src="js/getCityCountry.js"></script>
+	
+	 -->
+
+		<script src="js/getPlace.js"></script>
+		 <script src="js/setImage.js"></script>
+		 
+		
+	
 
 
-	<script
-		src="http://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyBa-NxlN1zc0dlp5bdYBzt1xzS2F1ZVlro"
-		type="text/javascript"></script>
 
-	<script type="text/javascript">
-		function initialize() {
-			var input = document.getElementById('searchTextField');
-			var autocomplete = new google.maps.places.Autocomplete(input);
-			autocomplete.setComponentRestrictions({
-				'country' : [ 'ESP' ]
-			});
-			google.maps.event
-					.addListener(
-							autocomplete,
-							'place_changed',
-							function() {
-								var place = autocomplete.getPlace();
-								document.getElementById('lugar').value = place.name;
-								document.getElementById('latitud').value = place.geometry.location
-										.lat();
-								document.getElementById('longitud').value = place.geometry.location
-										.lng();
-								document.getElementById('ciudad').value = place.getAddress().subSequence(place.getName());
-								
 
-								//alert("This function is working!");
 
-								// alert(place.address_components[0].long_name);
 
-							});
-		}
-
-		google.maps.event.addDomListener(window, 'load', initialize);
-	</script>
 	
 	
 	
 	
 	
 	
-	
-	<script type="text/javascript">
-		$(document).ready(
-				function() {
-					$(document).on(
-							'change',
-							'.btn-file :file',
-							function() {
-								var input = $(this), label = input.val()
-										.replace(/\\/g, '/')
-										.replace(/.*\//, '');
-								input.trigger('fileselect', [ label ]);
-							});
-
-					$('.btn-file :file').on(
-							'fileselect',
-							function(event, label) {
-
-								var input = $(this).parents('.input-group')
-										.find(':text'), log = label;
-
-								if (input.length) {
-									input.val(log);
-								} else {
-									if (log)
-										alert(log);
-								}
-
-							});
-					function readURL(input) {
-						if (input.files && input.files[0]) {
-							var reader = new FileReader();
-
-							reader.onload = function(e) {
-								$('#img-upload').attr('src', e.target.result);
-								document.getElementById('imagen').value =('src', e.target.result);
-							}
-
-							reader.readAsDataURL(input.files[0]);
-						}
-					}
-
-					$("#imgInp").change(function() {
-						readURL(this);
-					});
-				});
-	</script>
-
 
 
 
