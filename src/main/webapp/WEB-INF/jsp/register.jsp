@@ -11,8 +11,6 @@
 <body>
 
 	<%@ include file="fragments/header.jsp"%>
-
-
 	<div class="container w-50 p-3">
 		<hr>
 		<!-- Register form Bootstrap4 -->
