@@ -6,10 +6,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import com.example.demo.dao.IEventoRepository;
-import com.example.demo.dao.IImagenRepository;
-import com.example.demo.model.Evento;
 import com.example.demo.dao.IImagenRepository;
 import com.example.demo.model.Imagen;
 import com.example.demo.service.IImagenService;
@@ -52,7 +48,6 @@ public class ImagenServiceImpl implements IImagenService {
 				itr.add(i);
 			}
 		}
-
 		return itr;
 	}
 

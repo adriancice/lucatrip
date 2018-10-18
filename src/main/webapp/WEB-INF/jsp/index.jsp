@@ -88,7 +88,7 @@
 	</div>
 
 	<!-- Start of card´s -->
-	<div class="container row mt-5 px-3">
+	<div class="container-fluid row mt-5 px-3">
 	<c:forEach var="e" items="${listaEventos}">
 		<div class="col-md-3">
 			<div class="card">
