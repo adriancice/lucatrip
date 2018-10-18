@@ -43,6 +43,7 @@ public class GlobalController {
 		logger.info("login");
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("login");
+		System.out.println("hola");
 		return modelAndView;
 	}
 }

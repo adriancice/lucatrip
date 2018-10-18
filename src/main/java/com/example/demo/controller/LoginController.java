@@ -38,14 +38,19 @@ public class LoginController {
 		String pass = req.getParameter("password");
 		SHA_512 sha512 = new SHA_512();
 		String hashPass = sha512.get_SHA_512_SecurePassword(pass);
+		
 		User u=userService.findByEmail(email);
+		if(u!=null) {
 		if(email.equals(u.getEmail()) && hashPass.equals(u.getPassword())) {
 			modelAndView.setViewName("index");
 			session.setAttribute("email", u.getEmail());
 			session.setAttribute("name", u.getName());
 			session.setAttribute("surname", u.getSurname());
+		}
 		}else {
-			 modelAndView.setViewName("login");
+			String mensaje="email o contraseña incorrecto";
+			req.setAttribute("mensaje", mensaje);
+			modelAndView.setViewName("login");
 		}
 		return modelAndView;
 		

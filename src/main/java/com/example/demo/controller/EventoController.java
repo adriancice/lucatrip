@@ -1,11 +1,5 @@
 package com.example.demo.controller;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.Instant;
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.StringTokenizer;
 
@@ -13,17 +7,14 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.demo.model.Evento;
-import com.example.demo.model.User;
 import com.example.demo.service.IEventoService;
-import com.example.demo.service.IUserSevice;
-import com.example.demo.util.SHA_512;
 
 @Controller
 public class EventoController {

@@ -10,6 +10,7 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 <!-- Bootstrap CSS -->
+<link href="<c:url value="/resources/alert/alert.js"/>" rel="stylesheet">
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 
@@ -19,9 +20,14 @@
 
 	<%@ include file="fragments/header.jsp"%>
 
+	
+	<div class="alert alert-info fade out" id="bsalert">
+  	<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+	  <strong>Info!</strong> EL usuario y la contraseña no coinciden
+	</div>
 	<div class="container w-50 p-3">
 		<hr>
-		<!-- Register form Bootstrap4 -->
+		<!-- Register form Bootstrap4 --><button id="btn">Toggle</button>
 		<form class="form-signin" id="registerForm" action="/loginUser"
 			method="post">
 			<h5>${mensaje}</h5>
@@ -29,12 +35,9 @@
 			<hr>
 			<input type="text" name="email" class="form-control" placeholder="email" required autofocus /> 
 			<input type="password" name="password" class="form-control my-2" placeholder="Password"required /> 
-			<input type="submit" value="Login" class="btn btn-lg btn-success btn-block" />
+			<input type="submit" value="Login" class="btn btn-lg btn-success btn-block"  />
 		</form>
 		<!-- End register form Bootstrap4 -->
-	</div>
-	<div class="container">
-		<h5>${mensaje}</h5>
 	</div>
 	<!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
