@@ -39,6 +39,9 @@ public class Evento {
 	private double longitud;
 
 	private String sitio;
+	
+	@Column(name = "fecha_evento")
+	private Date fechaEvento;
 
 	private String pais;
 
