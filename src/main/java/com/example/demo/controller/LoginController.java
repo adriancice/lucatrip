@@ -44,6 +44,7 @@ public class LoginController {
 			session.setAttribute("email", u.getEmail());
 			session.setAttribute("name", u.getName());
 			session.setAttribute("surname", u.getSurname());
+			session.setAttribute("user", u);
 		} else {
 			modelAndView.setViewName("login");
 		}
