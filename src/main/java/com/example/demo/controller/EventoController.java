@@ -122,7 +122,7 @@ public class EventoController {
 		
 		Imagen imagenobj = new Imagen();
 		int id_evento = eventoService.add(evento);
-		imagenobj.setImagen(imagencortada);
+		imagenobj.setImagen(imagen);
 		imagenobj.setIdEvento(id_evento);
 		imagenService.save(imagenobj);
 		
