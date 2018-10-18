@@ -57,6 +57,8 @@ public class Evento {
 	@Column(name = "create_at")
 	@JsonFormat(pattern = "yyyy-MM-dd")
 	private Date createAt;
+	
+	
 
 	@PrePersist
 	public void PrePersist() {
