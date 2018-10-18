@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.example.demo.model.User;
 import com.example.demo.service.IUserSevice;
+import com.example.demo.util.Pattern;
 import com.example.demo.util.SHA_512;
 
 @Controller
@@ -40,16 +41,14 @@ public class LoginController {
 		String hashPass = sha512.get_SHA_512_SecurePassword(pass);
 		User u=userService.findByEmail(email);
 		boolean exist=true;
-		if(u!=null) {
-		if (email.equals(u.getEmail()) && hashPass.equals(u.getPassword())) {
+		if(u!=null && hashPass.equals(u.getPassword()) ) {
 			modelAndView.setViewName("index");
 			session.setAttribute("email", u.getEmail());
 			session.setAttribute("name", u.getName());
 			session.setAttribute("surname", u.getSurname());
-		}
-		} else {
-			exist=false;
+		}else {
 			modelAndView.setViewName("login");
+			exist=false;
 		}
 		req.setAttribute("exist", exist);
 		return modelAndView;
@@ -64,8 +63,16 @@ public class LoginController {
 		logger.info("registerUser");
 		ModelAndView modelAndView = new ModelAndView();
 		String existe = "si";
+		String mensaje="";
 		modelAndView.setViewName("register");
 		String pass = req.getParameter("password");
+		String conf_pass= req.getParameter("cpassword");
+		if(pass!=conf_pass) {
+			mensaje+="Las contraseñas no coinciden";
+		}
+		if(!pass.matches(Pattern.password)) {
+			mensaje+="La contraseña está en formato incorrecta mayor que 6 caracteres \n";
+		}
 		SHA_512 sha512 = new SHA_512();
 		String hashPass = sha512.get_SHA_512_SecurePassword(pass);
 		System.out.println(hashPass);
@@ -73,8 +80,12 @@ public class LoginController {
 		if (u == null) {
 			User user = new User(req.getParameter("name"), req.getParameter("surname"), hashPass,req.getParameter("email"));
 			userService.save(user);
+			mensaje="Genial! Te has registrado perfectamente";
 			existe = "no";
+		}else {
+			mensaje+="El correo ya existe \n";
 		}
+		req.setAttribute("mensaje", mensaje);
 		req.setAttribute("existe", existe);
 		return modelAndView;
 	}

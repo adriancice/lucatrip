@@ -25,8 +25,8 @@
 					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 						<form action="/logout">
 							<button class="dropdown-item" type="submit">Logout</button>
-							<a class="dropdown-item" href="/altaAnuncio">Crear anuncio</a> <a
-								class="dropdown-item" href="/misAnuncios">Ver mis anuncios</a> <hr><a
+							<a class="dropdown-item" href="/crearEvento">Crear evento</a> <a
+								class="dropdown-item" href="/misEventos">Ver mis eventos</a> <hr><a
 								class="dropdown-item" href="/verPerfil">Ver mi perfil</a>
 						</form>
 					</div>
