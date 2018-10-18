@@ -9,6 +9,7 @@ import javax.persistence.Table;
 
 /**
  * La clase Entity de las imagenes
+ * 
  * @author admin
  *
  */
@@ -24,7 +25,6 @@ public class Imagen {
 	@Column(name = "id_evento")
 	private int idEvento;
 
-	
 	private String imagen;
 
 	public int getIdImagen() {
