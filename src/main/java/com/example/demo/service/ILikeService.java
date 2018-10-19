@@ -15,5 +15,7 @@ public interface ILikeService {
 	Like findById(int id);
 
 	ArrayList<Like> findLikesByIdEvento(int id_evento);
+	
+	Boolean existeLikeIdUser(int iduser, int idEvento);
 
 }

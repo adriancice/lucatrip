@@ -12,16 +12,20 @@
 <!-- Bootstrap CSS -->
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-	
+
 </head>
 <body>
-<%@ include file="fragments/header.jsp"%>
+	<%@ include file="fragments/header.jsp"%>
+
+	<div class="container text-center">
+		<h3>Buscar Eventos</h3>
+	</div>
 	<!-- Start of card´s -->
 	<div class="container-fluid row my-5 px-3">
 		<c:forEach var="e" items="${evento}">
 			<div class="col-md-3">
 				<div class="card">
-				<img class="card-img-top" src="${e.imagen }" alt="Card image cap"> 
+					<img class="card-img-top" src="${e.imagen }" alt="Card image cap">
 					<div class="card-body">
 						<h5 class="card-title border-bottom pb-3">${e.sitio }</h5>
 						<strong>${e.ciudad }</strong>

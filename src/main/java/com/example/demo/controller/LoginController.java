@@ -82,11 +82,7 @@ public class LoginController {
 		String mensageFoto = "";
 		modelAndView.setViewName("register");
 		String pass = req.getParameter("password");
-		String conf_pass = req.getParameter("cpassword");
 		User u = userService.findByEmail(req.getParameter("email"));
-		if (pass != conf_pass) {
-			mensaje += "Las contraseñas no coinciden";
-		}
 		if (!pass.matches(Pattern.password)) {
 			mensaje += "La contraseña está en formato incorrecta mayor que 6 caracteres \n";
 		}

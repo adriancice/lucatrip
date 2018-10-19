@@ -55,4 +55,15 @@ public class LikeServiceImpl implements ILikeService {
 		
 	}
 
+	@Override
+	public Boolean existeLikeIdUser(int iduser, int idEvento) {
+		
+		for (Like l : likeRepository.findAll()) {
+			if (l.getIdUser() == iduser && l.getIdEvento()  == idEvento) {
+				return true;
+			}
+		}
+		return false;
+	}
+
 }
