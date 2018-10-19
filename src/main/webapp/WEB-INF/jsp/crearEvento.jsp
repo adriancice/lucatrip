@@ -45,7 +45,7 @@
 				<span class="fa fa-search form-control-feedback"></span> <input
 					id="searchTextField" type="text" class="form-control"
 					placeholder="Elige un lugar" autocomplete="on" runat="server"
-					required>
+					required autofocus>
 			</div>
 			<input type="hidden" id="latitud" name="latitud" /> <input
 				type="hidden" id="longitud" name="longitud" /> <input type="hidden"
