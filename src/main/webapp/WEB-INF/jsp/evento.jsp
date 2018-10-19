@@ -91,24 +91,7 @@
 	<div id="comentarios" class="container text-center mt">
 		<h3>¿Que comenta la gente?</h3>
 		
-				
-<c:if test="${sessionScope.user != null }">
 
- <div class="row">
-    
-    <div class="col-md-6">
-    						<div class="widget-area no-padding blank">
-								<div class="">
-									<form>
-										<textarea placeholder="Tu comentario...." ></textarea>
-										<button type="submit" class="btn btn-success green"><i class="fa fa-share"></i> Share</button>
-									</form>
-								</div><!-- Status Upload  -->
-							</div><!-- Widget Area -->
-						</div>
-        
-    </div>
-    		</c:if>
 		
 	<c:forEach var="c" items="${listaComentarios}">
 			<div class="col-md-3">
@@ -116,6 +99,20 @@
 				${c.comentario}
 			</div>
 		</c:forEach>
+		
+		
+						
+<c:if test="${sessionScope.user != null }">
+
+ 
+ 	<form action="/comentar" id="cajacomentario" style="margin: 0, auto" >
+ 					<input type="hidden" value="${sessionScope.user.idUser}" name="id_user" id="id_user">
+ 					<input type="hidden" value="${id_evento}" name="id_evento" id="id_evento">
+ 					<textarea id="comentario" name="comentario" style="width: 60%" placeholder="¿Que opinas de este evento?" ></textarea>
+ 					<input type="submit" value="ENVIAR">
+ 	</form>
+ 
+    		</c:if>
 
 <!--  -->
 
