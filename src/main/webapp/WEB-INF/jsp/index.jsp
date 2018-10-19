@@ -102,7 +102,7 @@
 				<input type="hidden" id="url" name="url" />
 				 
 			<div class="container text-center" id="enviar">
-				<input type="submit" name="enviar">
+				<input type="submit" name="enviarbtn" disabled="disabled"  id="enviarbtn">
 			</div>
 		</form>
 	</div>

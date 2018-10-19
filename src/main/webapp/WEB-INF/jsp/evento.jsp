@@ -75,10 +75,10 @@
 
 		<h4>Indica que te gusta este evento</h4>
 		<small>Gente a la que le ha gustado este evento: ${sessionScope.totallikes }</small> <br>
-		<small>${sessionScope.mensaje }</small>
 		<c:if test="${sessionScope.user != null }">
 		<small>Indica que te gusta -></small>
-				<a href="/darlike?id_user=${sessionScope.user.idUser}&id_evento=${id_evento}">
+				<a href="/darlike?id_user=${sessionScope.user.idUser}&id_evento=${id_evento}"> <br>
+				<small>${sessionScope.mensaje }</small>
 		
 		<img alt="" src="http://pngimg.com/uploads/like/like_PNG60.png" style="width: 20px; height: 20px">		
 		</c:if>

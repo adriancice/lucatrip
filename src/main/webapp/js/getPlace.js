@@ -1,4 +1,5 @@
 function initialize() {
+
 			var input = document.getElementById('searchTextField');
 			var autocomplete = new google.maps.places.Autocomplete(input);
 			google.maps.event
@@ -10,8 +11,9 @@ function initialize() {
 								
 								var latlng;
 								var place = autocomplete.getPlace();
-								
-								
+								$('#enviarbtn').removeAttr('disabled');
+
+
 								latlng = new google.maps.LatLng(place.geometry.location.lat(), document.getElementById('longitud').value = place.geometry.location.lng()  ); // Madrid, ES
 								document.getElementById('lugar').value = place.name;
 								document.getElementById('latitud').value = place.geometry.location

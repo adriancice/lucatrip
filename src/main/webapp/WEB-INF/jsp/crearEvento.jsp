@@ -67,12 +67,9 @@
 				name="fecha" max="9999-12-12T00:00:00.00">
 
 
-		<div class="container text-center" id="enviar">
-			<input type="submit" name="enviar">
-		</div>
 
 		<div class="container text-center pt-3" id="enviar">
-			<input class="btn btn-success" type="submit" name="enviar">
+			<input class="btn btn-success" type="submit" name="enviar" value="Crear">
 		</div>
 
 
