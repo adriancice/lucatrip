@@ -15,8 +15,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
+import com.example.demo.model.Comentario;
 import com.example.demo.model.Like;
 import com.example.demo.model.User;
+import com.example.demo.service.IComentarioService;
 import com.example.demo.service.IEventoService;
 import com.example.demo.service.ILikeService;
 
@@ -27,9 +29,32 @@ public class ComentariosController {
 	private HttpSession session;
 
 	@Autowired
-	private IEventoService eventoService;
+	private IComentarioService comentarioService;
 	
-	@Autowired
-	private ILikeService likeService;
+	
 
+	
+	@RequestMapping(value = "/comentar")
+	public ModelAndView cerrarSesion(HttpServletRequest req, @RequestParam("id_evento") int id_evento, @RequestParam("comentario") String comentario) {
+		session = req.getSession(true);
+		User u = (User) session.getAttribute("user");
+		int id_user = u.getIdUser();
+		
+		Comentario nuevoComentario = new Comentario();
+		nuevoComentario.setComentario(comentario);
+		nuevoComentario.setIdEvento(id_evento);
+		nuevoComentario.setIdUser(id_user);
+		comentarioService.save(nuevoComentario);
+		
+		logger.error("comentar");
+		ModelAndView modelAndView = new ModelAndView();
+		//modelAndView.setViewName("evento");
+//		modelAndView.addObject("id_evento", id_evento);
+		modelAndView.setView(new RedirectView("verevento?id_evento="+id_evento+"", true));
+		
+		
+		return modelAndView;
+	
+	
+}
 }

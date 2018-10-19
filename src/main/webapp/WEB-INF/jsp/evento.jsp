@@ -94,9 +94,8 @@
 
 		
 	<c:forEach var="c" items="${listaComentarios}">
-			<div class="col-md-3">
-		
-				${c.comentario}
+			<div>
+				"${c.comentario}"
 			</div>
 		</c:forEach>
 		
@@ -112,7 +111,7 @@
  					<input type="submit" value="ENVIAR">
  	</form>
  
-    		</c:if>
+   </c:if>
 
 <!--  -->
 
