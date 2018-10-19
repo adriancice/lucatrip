@@ -20,6 +20,7 @@ public class LikeServiceImpl implements ILikeService {
 	@Override
 	public Like save(Like like) {
 		return likeRepository.save(like);
+		
 	}
 
 	@Override
@@ -45,7 +46,7 @@ public class LikeServiceImpl implements ILikeService {
 	@Override
 	public ArrayList<Like> findLikesByIdEvento(int id_evento) {
 		ArrayList<Like> likes = new ArrayList<>();
-		for (Like l : likes) {
+		for (Like l : likeRepository.findAll()) {
 			if (l.getIdEvento() == id_evento) {
 				likes.add(l);
 			}

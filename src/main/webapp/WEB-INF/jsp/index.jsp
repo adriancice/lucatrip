@@ -88,7 +88,7 @@
 	</div>
 
 	<!-- Start of card´s -->
-	<div class="container-fluid row mt-5 px-3">
+	<div class="container-fluid row my-5 px-3">
 		<c:forEach var="e" items="${listaEventos}">
 			<div class="col-md-3">
 				<div class="card">
@@ -105,6 +105,29 @@
 		</c:forEach>
 	</div>
 	<!-- end of card -->
+
+	<!-- prueba -->
+	<div class="row">
+		<h2 class="blur">
+			Blur effect
+			</h1>
+			<div class="col-sm-6">
+				<div class="img_section5">
+					<figure>
+						<img
+							src="http://i3.wp.com/ytimg.googleusercontent.com/vi/g9Is-3fTh7Q/mqdefault.jpg">
+					</figure>
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="img_section5">
+					<figure>
+						<img src="https://i.ytimg.com/vi/v7U78sJxAQk/mqdefault.jpg">
+					</figure>
+				</div>
+			</div>
+	</div>
+	<!-- fin prueba -->
 
 	<%@ include file="fragments/footer.jsp"%>
 </body>

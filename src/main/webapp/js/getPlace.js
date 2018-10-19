@@ -1,9 +1,6 @@
 function initialize() {
 			var input = document.getElementById('searchTextField');
 			var autocomplete = new google.maps.places.Autocomplete(input);
-			autocomplete.setComponentRestrictions({
-				'country' : [ 'ESP' ]
-			});
 			google.maps.event
 					.addListener(
 							autocomplete,

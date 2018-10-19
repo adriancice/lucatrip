@@ -5,6 +5,8 @@ import java.util.Collection;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.dao.IEventoRepository;
@@ -56,14 +58,17 @@ public class EventoServiceImpl implements IEventoService {
 	@Override
 	public List<Evento> findAllById(int id) {
 		List<Evento> eventos = new ArrayList<>();
-		for (Evento e : eventos) {
-			if (e.getIdEvento() == id) {
+		for (Evento e : eventoRepository.findAll()) {
+			if (e.getIdUser() == id) {
 				eventos.add(e);
 			}
 		}
 		return eventos;
 	}
 
-
+	@Override
+	public Page<Evento> findAll(Pageable pageable) {
+		return eventoRepository.findAll(pageable);
+	}
 
 }

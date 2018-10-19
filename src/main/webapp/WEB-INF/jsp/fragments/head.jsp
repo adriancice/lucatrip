@@ -11,3 +11,5 @@
 <link rel="stylesheet" href="css/carousel.css">
 <link rel="stylesheet" href="css/footer.css">
 <link rel="stylesheet" href="css/perfil.css">
+<link rel="stylesheet" href="css/hover.css">
+<link rel="stylesheet" href="css/main.css">

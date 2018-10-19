@@ -42,6 +42,7 @@ public class Evento {
 
 	private String descripcion;
 
+	@Column(columnDefinition = "LONGTEXT")
 	private String imagen;
 
 	@Column(name = "id_user")

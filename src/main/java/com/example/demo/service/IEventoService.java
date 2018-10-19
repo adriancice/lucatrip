@@ -3,6 +3,9 @@ package com.example.demo.service;
 import java.util.Collection;
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
 import com.example.demo.model.Evento;
 
 public interface IEventoService {
@@ -18,8 +21,9 @@ public interface IEventoService {
 	Evento findById(int id);
 
 	Collection<Evento> findAll();
-	
+
 	List<Evento> findAllById(int id);
 
+	Page<Evento> findAll(Pageable pageable);
 
 }
