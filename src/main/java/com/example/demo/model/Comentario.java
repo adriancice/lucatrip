@@ -8,10 +8,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.PrePersist;
 import javax.persistence.Table;
 
 /**
  * La clase Entity de los comentarios
+ * 
  * @author admin
  *
  */
@@ -33,6 +35,11 @@ public class Comentario implements Serializable {
 	private int idEvento;
 
 	private Date fechaComentario;
+
+	@PrePersist
+	public void PrePersist() {
+		fechaComentario = new Date();
+	}
 
 	public int getIdComentario() {
 		return idComentario;
