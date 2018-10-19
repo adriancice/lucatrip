@@ -9,6 +9,7 @@ import org.apache.tomcat.util.buf.UDecoder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration.EnableTransactionManagementConfiguration;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -28,7 +29,7 @@ public class LikesController {
 
 	@Autowired
 	private IEventoService eventoService;
-	
+
 	@Autowired
 	private ILikeService likeService;
 
@@ -37,45 +38,30 @@ public class LikesController {
 		session = req.getSession(true);
 		User u = (User) session.getAttribute("user");
 		int id_user = u.getIdUser();
+		boolean encontrado = false;
 		logger.error("darlike");
 		ModelAndView modelAndView = new ModelAndView();
-		//modelAndView.setViewName("evento");
+		// modelAndView.setViewName("evento");
 //		modelAndView.addObject("id_evento", id_evento);
-		modelAndView.setView(new RedirectView("verevento?id_evento="+id_evento+"", true));
+		modelAndView.setView(new RedirectView("verevento?id_evento=" + id_evento + "", true));
 		String mensaje = "eeeee";
 		ArrayList<Like> listaLikes = likeService.findLikesByIdEvento(id_evento);
+
+		boolean existe = likeService.existeLikeIdUser(id_user, id_evento);
 		
-	
-		if(listaLikes.size() == 0) {
-			Like nuevoLike = new Like();
-			nuevoLike.setIdEvento(id_evento);
-			nuevoLike.setIdUser(id_user);
-			likeService.save(nuevoLike);
-			mensaje = "Votado con exito";
-			System.err.println("VOTADO PORQUE LA LISTA ES 0");
-			
-			
+		if(!existe) {
+			Like like = new Like();
+			like.setIdEvento(id_evento);
+			like.setIdUser(id_user);
+			likeService.save(like);
+			mensaje="Añadido con exito";
+			System.err.println("Añadidp");
 		}else {
-		
-		for (Like like : listaLikes) {
-			int id_user2 = like.getIdUser();
-			if(id_user2 == id_user) {
-				mensaje = "Ya has votado este evento";
-				System.err.println("NO VOTADO, YA VOTADO PREVIAMENTE");
-				break;
-			}else{
-				Like nuevoLike = new Like();
-				nuevoLike.setIdEvento(id_evento);
-				nuevoLike.setIdUser(id_user);
-				likeService.save(nuevoLike);
-				mensaje = "Votado con exito";
-				System.err.println("VOTADO PORQUE NO ESTÁ EN LA LISTA");
-				break;
-			}
+			mensaje="Ya has votado";
+			System.err.println("Ya has votado");
 		}
-		
-	}
 		session.setAttribute("mensaje", mensaje);
 		return modelAndView;
 	}
+
 }
