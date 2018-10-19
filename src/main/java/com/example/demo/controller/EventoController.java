@@ -21,6 +21,7 @@ import com.example.demo.model.Evento;
 import com.example.demo.model.User;
 import com.example.demo.service.IComentarioService;
 import com.example.demo.service.IEventoService;
+import com.example.demo.service.ILikeService;
 
 @Controller
 public class EventoController {
@@ -31,6 +32,9 @@ public class EventoController {
 
 	@Autowired
 	private IComentarioService comentarioService;
+	
+	@Autowired
+	private ILikeService likeService;
 	
 	@RequestMapping("/crearEventoNuevo")
 	public ModelAndView register(HttpServletRequest req) {
@@ -143,8 +147,16 @@ public class EventoController {
 		HttpSession session = req.getSession(true);
 		
 		Evento e = eventoService.findById(id_evento);
-		//conseguir likes y eventos con los repsectivos servicios
+		
+		///////lista likes///////
+		
+		//ARRAYLIST CON LIKES donde el id evento sea igual al que le apasemos. La cantidad de likes sera el tamaño de ese array
+		likeService.findLikesByIdEvento(e.getIdEvento());
+		
+		///////lista likes///////
+		
 		ArrayList<Comentario> listaComentarios = comentarioService.findComentariosByIdEvento(id_evento);
+	
 		
 		req.setAttribute("lugar", e.getSitio());
 		req.setAttribute("pais", e.getPais());
@@ -153,7 +165,6 @@ public class EventoController {
 		req.setAttribute("longitud", e.getLongitud());
 		req.setAttribute("descripcion", e.getDescripcion());
 		req.setAttribute("imagen", e.getImagen());
-		
 		req.setAttribute("listaComentarios", listaComentarios);
 		
 	
