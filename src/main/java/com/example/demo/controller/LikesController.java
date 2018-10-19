@@ -46,25 +46,31 @@ public class LikesController {
 		ArrayList<Like> listaLikes = likeService.findLikesByIdEvento(id_evento);
 		
 	
-		
 		if(listaLikes.size() == 0) {
 			Like nuevoLike = new Like();
 			nuevoLike.setIdEvento(id_evento);
 			nuevoLike.setIdUser(id_user);
 			likeService.save(nuevoLike);
 			mensaje = "Votado con exito";
-
+			System.err.println("VOTADO PORQUE LA LISTA ES 0");
+			
+			
 		}else {
 		
 		for (Like like : listaLikes) {
-			if(like.getIdUser() == id_user) {
+			int id_user2 = like.getIdUser();
+			if(id_user2 == id_user) {
 				mensaje = "Ya has votado este evento";
+				System.err.println("NO VOTADO, YA VOTADO PREVIAMENTE");
+				break;
 			}else{
 				Like nuevoLike = new Like();
 				nuevoLike.setIdEvento(id_evento);
 				nuevoLike.setIdUser(id_user);
 				likeService.save(nuevoLike);
 				mensaje = "Votado con exito";
+				System.err.println("VOTADO PORQUE NO ESTÁ EN LA LISTA");
+				break;
 			}
 		}
 		
