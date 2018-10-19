@@ -11,7 +11,6 @@
 	type="text/javascript"></script>
 <script
 	src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
-
 </head>
 <body>
 
@@ -21,7 +20,26 @@
 		<div class="container text-center">
 			<h1>Crear evento</h1>
 		</div>
-
+		<c:if test="${mensajeEvento.length() > 23 }">
+			<div class="container alert alert-success alert-dismissible show"
+				role="alert">
+				<strong>${mensajeEvento }</strong>
+				<button type="button" class="close" data-dismiss="alert"
+					aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+		</c:if>
+		<c:if test="${mensajeEvento.length() < 23 }">
+			<div class="container alert alert-danger alert-dismissible show"
+				role="alert">
+				<strong>${mensajeEvento }</strong>
+				<button type="button" class="close" data-dismiss="alert"
+					aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+		</c:if>
 		<div id="buscador" class="container">
 			<div class=" container form-group has-search">
 				<span class="fa fa-search form-control-feedback"></span> <input
@@ -36,13 +54,6 @@
 			<input type="hidden" id="pais" name="pais" /> <input type="hidden"
 				id="url" name="url" />
 		</div>
-		<!-- 		
-		<div id="descripcion" class="container text-center mt">
-			<h3>Descripcion del evento</h3>
-			<textarea required="required" placeholder="Descripcion del evento"
-				style="min-width: 40%" id="descripcion" name="descripcion"></textarea>
-		</div>
- -->
 		<div class=" container form-group">
 			<textarea class="form-control" rows="3" id="descripcion"
 				name="descripcion"
@@ -54,16 +65,14 @@
 			<h3>Fecha del evento</h3>
 			<input required="required" type="datetime-local" id="fecha"
 				name="fecha" max="9999-12-12T00:00:00.00">
-		</div>
-		<div class="container">
-			<input id="datepicker" width="276" value="02/04/2018" />
-		</div>
 
 
-
-		<div class="container text-center" id="enviar">
-			<input type="submit" name="enviar">
 		</div>
+
+		<div class="container text-center pt-3" id="enviar">
+			<input class="btn btn-success" type="submit" name="enviar">
+		</div>
+
 
 	</form>
 

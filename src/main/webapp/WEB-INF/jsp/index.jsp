@@ -106,28 +106,6 @@
 	</div>
 	<!-- end of card -->
 
-	<!-- prueba -->
-	<div class="row">
-		<h2 class="blur">
-			Blur effect
-			</h1>
-			<div class="col-sm-6">
-				<div class="img_section5">
-					<figure>
-						<img
-							src="http://i3.wp.com/ytimg.googleusercontent.com/vi/g9Is-3fTh7Q/mqdefault.jpg">
-					</figure>
-				</div>
-			</div>
-			<div class="col-sm-6">
-				<div class="img_section5">
-					<figure>
-						<img src="https://i.ytimg.com/vi/v7U78sJxAQk/mqdefault.jpg">
-					</figure>
-				</div>
-			</div>
-	</div>
-	<!-- fin prueba -->
 
 	<%@ include file="fragments/footer.jsp"%>
 </body>

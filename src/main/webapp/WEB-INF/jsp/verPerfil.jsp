@@ -29,7 +29,7 @@
 						</c:otherwise>
 					</c:choose>
 					<div class="box-content">
-						<h2 class="title">${name }${surname }</h2>
+						<h2 class="title">${name } ${surname }</h2>
 						<span class="post">Web Developer</span><br> <span
 							class="post">Fecha registro: ${fecha }</span>
 					</div>
