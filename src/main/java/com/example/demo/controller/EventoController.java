@@ -18,9 +18,11 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.example.demo.model.Comentario;
 import com.example.demo.model.Evento;
+import com.example.demo.model.Like;
 import com.example.demo.model.User;
 import com.example.demo.service.IComentarioService;
 import com.example.demo.service.IEventoService;
+import com.example.demo.service.ILikeService;
 
 @Controller
 public class EventoController {
@@ -31,6 +33,9 @@ public class EventoController {
 
 	@Autowired
 	private IComentarioService comentarioService;
+
+	@Autowired
+	private ILikeService likeService;
 
 	@RequestMapping("/crearEventoNuevo")
 	public ModelAndView register(HttpServletRequest req) {
@@ -117,13 +122,13 @@ public class EventoController {
 			evento.setIdUser(user.getIdUser());
 
 			eventoService.add(evento);
-			
+
 		} catch (Exception e) {
 			mensajeEvento = "Ha ocurrido un error";
 			System.out.println(e);
-			
+
 		}
-		
+
 		req.setAttribute("mensajeEvento", mensajeEvento);
 		return modelAndView;
 
@@ -144,15 +149,25 @@ public class EventoController {
 
 		Evento e = eventoService.findById(id_evento);
 		// conseguir likes y eventos con los repsectivos servicios
+
+		ArrayList<Like> listaLikes = likeService.findLikesByIdEvento(e.getIdEvento());
+
 		ArrayList<Comentario> listaComentarios = comentarioService.findComentariosByIdEvento(id_evento);
 
+		session.setAttribute("totallikes", listaLikes.size());
+		System.err.println("cantidad de likes: " + listaLikes.size());
+
 		req.setAttribute("lugar", e.getSitio());
+		req.setAttribute("id_evento", e.getIdEvento());
 		req.setAttribute("pais", e.getPais());
 		req.setAttribute("ciudad", e.getCiudad());
 		req.setAttribute("latitud", e.getLatitud());
 		req.setAttribute("longitud", e.getLongitud());
 		req.setAttribute("descripcion", e.getDescripcion());
 		req.setAttribute("imagen", e.getImagen());
+
+		req.setAttribute("listaLikes", listaLikes);
+
 		req.setAttribute("listaComentarios", listaComentarios);
 		return modelAndView;
 	}

@@ -1,9 +1,13 @@
 package com.example.demo.service.impl;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.dao.ILikeRepository;
+import com.example.demo.model.Evento;
 import com.example.demo.model.Like;
 import com.example.demo.service.ILikeService;
 
@@ -16,6 +20,7 @@ public class LikeServiceImpl implements ILikeService {
 	@Override
 	public Like save(Like like) {
 		return likeRepository.save(like);
+		
 	}
 
 	@Override
@@ -35,6 +40,19 @@ public class LikeServiceImpl implements ILikeService {
 	@Override
 	public Like findById(int id) {
 		return likeRepository.findById(id).get();
+	}
+	
+	
+	@Override
+	public ArrayList<Like> findLikesByIdEvento(int id_evento) {
+		ArrayList<Like> likes = new ArrayList<>();
+		for (Like l : likeRepository.findAll()) {
+			if (l.getIdEvento() == id_evento) {
+				likes.add(l);
+			}
+		}
+		return likes;	
+		
 	}
 
 }

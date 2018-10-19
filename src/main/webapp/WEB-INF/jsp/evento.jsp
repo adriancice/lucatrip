@@ -73,13 +73,44 @@
 
 	<div id="votos" class="container text-center mt">
 
-		<a>Votos</a>
-	</div>
+		<h4>Indica que te gusta este evento</h4>
+		<small>Gente a la que le ha gustado este evento: ${sessionScope.totallikes }</small> <br>
+		<small>${sessionScope.mensaje }</small>
+		<c:if test="${sessionScope.user != null }">
+		<small>Indica que te gusta -></small>
+				<a href="/darlike?id_user=${sessionScope.user.idUser}&id_evento=${id_evento}">
+		
+		<img alt="" src="http://pngimg.com/uploads/like/like_PNG60.png" style="width: 20px; height: 20px">		
+		</c:if>
+		</a>
+		
+		</div>
+		
 
-
+    
 	<div id="comentarios" class="container text-center mt">
 		<h3>¿Que comenta la gente?</h3>
-<c:forEach var="c" items="${listaComentarios}">
+		
+				
+<c:if test="${sessionScope.user != null }">
+
+ <div class="row">
+    
+    <div class="col-md-6">
+    						<div class="widget-area no-padding blank">
+								<div class="">
+									<form>
+										<textarea placeholder="Tu comentario...." ></textarea>
+										<button type="submit" class="btn btn-success green"><i class="fa fa-share"></i> Share</button>
+									</form>
+								</div><!-- Status Upload  -->
+							</div><!-- Widget Area -->
+						</div>
+        
+    </div>
+    		</c:if>
+		
+	<c:forEach var="c" items="${listaComentarios}">
 			<div class="col-md-3">
 		
 				${c.comentario}
