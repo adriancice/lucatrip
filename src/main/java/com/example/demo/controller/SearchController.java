@@ -31,7 +31,7 @@ public class SearchController {
 			List<Evento> eve=eventoService.serchEvento(pais);
 			if(eve == null) {
 				bandera=false;
-				mensaje="No hay ningun pais con este nombre";
+				mensaje="No hay ninguna ciudad con este nombre";
 			}else {
 				req.setAttribute("evento", eve);
 			}
@@ -40,7 +40,7 @@ public class SearchController {
 			List<Evento> eve=eventoService.serchEvento(pais, ciudad);
 			if(eve == null) {
 				bandera=false;
-				mensaje="No hay ninguna ciudad con este nombre";
+				mensaje="No hay ninguna sitio con este nombre";
 			}else {
 				req.setAttribute("evento", eve);
 			}
