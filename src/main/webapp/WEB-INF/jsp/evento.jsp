@@ -73,18 +73,45 @@
 
 	<div id="votos" class="container text-center mt">
 
-		<a>Votos</a>
-	</div>
+		<h4>Indica que te gusta este evento</h4>
+		<small>Gente a la que le ha gustado este evento: ${sessionScope.totallikes }</small> <br>
+		<small>${sessionScope.mensaje }</small>
+		<c:if test="${sessionScope.user != null }">
+		<small>Indica que te gusta -></small>
+				<a href="/darlike?id_user=${sessionScope.user.idUser}&id_evento=${id_evento}">
+		
+		<img alt="" src="http://pngimg.com/uploads/like/like_PNG60.png" style="width: 20px; height: 20px">		
+		</c:if>
+		</a>
+		
+		</div>
+		
 
-
+    
 	<div id="comentarios" class="container text-center mt">
 		<h3>¿Que comenta la gente?</h3>
-<c:forEach var="c" items="${listaComentarios}">
-			<div class="col-md-3">
 		
-				${c.comentario}
+
+		
+	<c:forEach var="c" items="${listaComentarios}">
+			<div>
+				"${c.comentario}"
 			</div>
 		</c:forEach>
+		
+		
+						
+<c:if test="${sessionScope.user != null }">
+
+ 
+ 	<form action="/comentar" id="cajacomentario" style="margin: 0, auto" >
+ 					<input type="hidden" value="${sessionScope.user.idUser}" name="id_user" id="id_user">
+ 					<input type="hidden" value="${id_evento}" name="id_evento" id="id_evento">
+ 					<textarea id="comentario" name="comentario" style="width: 60%" placeholder="¿Que opinas de este evento?" ></textarea>
+ 					<input type="submit" value="ENVIAR">
+ 	</form>
+ 
+   </c:if>
 
 <!--  -->
 
