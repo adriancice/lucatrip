@@ -3,6 +3,7 @@ package com.example.demo.service.impl;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -71,4 +72,33 @@ public class EventoServiceImpl implements IEventoService {
 		return eventoRepository.findAll(pageable);
 	}
 
+	
+	@Override
+	public List<Evento> serchEvento(String pais,String ciudad,String sitio){
+		Optional<List<Evento>> searchEvento=eventoRepository.findbyPaisCiudadSitio(pais, ciudad, sitio);
+		if(searchEvento.isPresent()) {
+			return searchEvento.get();
+		}
+		return null;
+	}
+
+	@Override
+	public List<Evento> serchEvento(String pais, String ciudad) {
+
+		Optional<List<Evento>> searchEvento=eventoRepository.findbyPaisCiudadSitio(pais, ciudad);
+		if(searchEvento.isPresent()) {
+			return searchEvento.get();
+		}
+		return null;
+	}
+
+	@Override
+	public List<Evento> serchEvento(String pais) {
+
+		Optional<List<Evento>> searchEvento=eventoRepository.findbyPaisCiudadSitio(pais);
+		if(searchEvento.isPresent()) {
+			return searchEvento.get();
+		}
+		return null;
+	}
 }

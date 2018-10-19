@@ -26,4 +26,10 @@ public interface IEventoService {
 
 	Page<Evento> findAll(Pageable pageable);
 
+	List<Evento> serchEvento(String pais, String ciudad, String sitio);
+
+	List<Evento> serchEvento(String pais, String ciudad);
+	
+	List<Evento> serchEvento(String pais);
+
 }

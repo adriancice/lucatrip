@@ -1,12 +1,14 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
 <html lang="en">
 <head>
 <%@ include file="fragments/head.jsp"%>
+<meta charset="utf-8">
 
-<title>LucaTrip</title>
+<script src="http://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyBa-NxlN1zc0dlp5bdYBzt1xzS2F1ZVlro" type="text/javascript"></script>
+	<title>LucaTrip</title>
 </head>
 <body>
 
@@ -46,8 +48,7 @@
 								quam. Donec id elit non mi porta gravida at eget metus. Nullam
 								id dolor id nibh ultricies vehicula ut id elit.</p>
 							<p>
-								<a class="btn btn-lg btn-primary" href="#" role="button">Learn
-									more</a>
+								<a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a>
 							</p>
 						</div>
 					</div>
@@ -77,22 +78,41 @@
 			</a>
 		</div>
 	</div>
-	<!-- El carrousel del index -->
-	<div class="justify-content-center align-items-center">
-		<form class=" col-6 form-inline mt-2 mt-md-0" action="/buscar">
-			<input class="form-control mr-sm-2" type="text" name="nombre"
-				placeholder="Buscar" aria-label="Search">
-			<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar
-				evento</button>
+	<!-- Fin carrousel del index -->
+		
+	<!-- Empieza buscador -->
+	
+	<div id="buscador" class="container text-center mt">
+		<form action="/searchEvent" method="post">
+		<h3>Buscar Eventos</h3>
+	  	<c:if test="${bandera==false}">
+			<div class="alert alert-danger alert-dismissible show" role="alert">
+				<strong>${mensaje}</strong>
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+	 	</c:if>
+			<input id="searchTextField" type="text" size="50" placeholder="Elige un lugar" autocomplete="on" runat="server" required="required" />
+				<input type="hidden" id="latitud" name="latitud" /> 
+				<input type="hidden" id="longitud" name="longitud" /> 
+				<input type="hidden" id="lugar" name="lugar" /> 
+				<input type="hidden" id="ciudad" name="ciudad" />
+				<input type="hidden" id="pais" name="pais" />
+				<input type="hidden" id="url" name="url" />
+				 
+			<div class="container text-center" id="enviar">
+				<input type="submit" name="enviar">
+			</div>
 		</form>
 	</div>
-
-	<!-- Start of card´s -->
+	<!-- Finaliza buscador -->
+	<!-- Start of cardÂ´s -->
 	<div class="container-fluid row my-5 px-3">
 		<c:forEach var="e" items="${listaEventos}">
 			<div class="col-md-3">
 				<div class="card">
-					<img class="card-img-top" src="${e.imagen }" alt="Card image cap">
+					<img class="card-img-top" src="${e.imagen}" alt="Card image cap">
 					<div class="card-body">
 						<h5 class="card-title border-bottom pb-3">${e.sitio }</h5>
 						<strong>${e.ciudad }</strong>
@@ -105,29 +125,10 @@
 		</c:forEach>
 	</div>
 	<!-- end of card -->
-
-	<!-- prueba -->
-	<div class="row">
-		<h2 class="blur">
-			Blur effect
-			</h1>
-			<div class="col-sm-6">
-				<div class="img_section5">
-					<figure>
-						<img
-							src="http://i3.wp.com/ytimg.googleusercontent.com/vi/g9Is-3fTh7Q/mqdefault.jpg">
-					</figure>
-				</div>
-			</div>
-			<div class="col-sm-6">
-				<div class="img_section5">
-					<figure>
-						<img src="https://i.ytimg.com/vi/v7U78sJxAQk/mqdefault.jpg">
-					</figure>
-				</div>
-			</div>
-	</div>
-	<!-- fin prueba -->
+	
+	<!-- Optional JavaScript-->
+		<script src="js/getPlace.js"></script>
+	<!--  Optional JavaScript -->
 
 	<%@ include file="fragments/footer.jsp"%>
 </body>

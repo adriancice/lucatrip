@@ -60,7 +60,6 @@
 		</div>
 
 
-
 		<div class="container text-center" id="enviar">
 			<input type="submit" name="enviar">
 		</div>

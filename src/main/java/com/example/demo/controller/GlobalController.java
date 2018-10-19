@@ -27,7 +27,7 @@ public class GlobalController {
 	private IUserSevice userService;
 
 	@RequestMapping("/")
-	public ModelAndView index(HttpServletRequest req, @RequestParam(name = "page", defaultValue = "0") int page) {
+	public ModelAndView index(HttpServletRequest req) {
 		logger.info("index");
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("index");

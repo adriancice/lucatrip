@@ -22,7 +22,7 @@
 
 
 	<div class="container w-50 p-3">
-		<c:if test="${exist==false}">
+		<c:if test="${!exist}">
 			<div class="alert alert-danger alert-dismissible show" role="alert">
 				<strong>Fallo al loguear usuario o contraseña incorrecto</strong>
 				<button type="button" class="close" data-dismiss="alert"
