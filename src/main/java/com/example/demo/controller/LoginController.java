@@ -119,8 +119,5 @@ public class LoginController {
 		req.setAttribute("mensageFoto", mensageFoto);
 		return modelAndView;
 	}
-	
-	
-	
-	
+
 }

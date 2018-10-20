@@ -10,7 +10,7 @@
 				href="#">Pricing</a>
 		</nav>
 		<c:choose>
-			<c:when test="${email == null}">
+			<c:when test="${sessionScope.user == null }">
 				<a href="/login" role="button" class="btn btn-outline-success mx-2">Sign
 					in</a>
 				<a href="/register" role="button" class="btn btn-outline-info">Sign
@@ -24,10 +24,11 @@
 						${name} ${surname}</button>
 					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 						<form action="/logout">
+							<a class="dropdown-item" href="/verPerfil">Ver mi perfil</a> <a
+								class="dropdown-item" href="/crearEvento">Crear evento</a> <a
+								class="dropdown-item" href="/verMisEventos">Ver mis eventos</a>
+							<hr>
 							<button class="dropdown-item" type="submit">Logout</button>
-							<a class="dropdown-item" href="/crearEvento">Crear evento</a> <a
-								class="dropdown-item" href="/verMisEventos">Ver mis eventos</a> <hr><a
-								class="dropdown-item" href="/verPerfil">Ver mi perfil</a>
 						</form>
 					</div>
 				</div>

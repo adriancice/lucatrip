@@ -126,7 +126,6 @@ public class EventoController {
 		} catch (Exception e) {
 			mensajeEvento = "Ha ocurrido un error";
 			System.out.println(e);
-
 		}
 
 		req.setAttribute("mensajeEvento", mensajeEvento);
@@ -155,7 +154,6 @@ public class EventoController {
 		ArrayList<Comentario> listaComentarios = comentarioService.findComentariosByIdEvento(id_evento);
 
 		session.setAttribute("totallikes", listaLikes.size());
-		System.err.println("cantidad de likes: " + listaLikes.size());
 
 		req.setAttribute("lugar", e.getSitio());
 		req.setAttribute("id_evento", e.getIdEvento());
