@@ -117,6 +117,10 @@
 	</div>
 	<!-- Finaliza buscador -->
 	<!-- Start of card´s -->
+	<div class="container mt-5">
+		<h3 class="text-uppercase">ultimos eventos añadidos</h3>
+	</div>
+
 	<div class="container-fluid row my-5 px-3">
 		<c:forEach var="e" items="${listaEventos}">
 			<div class="col-md-3">
@@ -127,7 +131,7 @@
 						<strong>${e.ciudad }</strong>
 						<p class="card-text">${e.descripcion }.</p>
 						<a href="/verevento?id_evento=${e.idEvento}"
-							class="btn btn-sm btn-info float-right">Read more &raquo;</a>
+							class="btn btn-sm btn-info float-right">Ver más detalles &raquo;</a>
 					</div>
 				</div>
 			</div>

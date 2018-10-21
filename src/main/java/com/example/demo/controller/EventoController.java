@@ -23,6 +23,7 @@ import com.example.demo.model.User;
 import com.example.demo.service.IComentarioService;
 import com.example.demo.service.IEventoService;
 import com.example.demo.service.ILikeService;
+import com.example.demo.service.IUserSevice;
 
 @Controller
 public class EventoController {
@@ -36,6 +37,9 @@ public class EventoController {
 
 	@Autowired
 	private ILikeService likeService;
+	
+	@Autowired
+	private IUserSevice userService;
 
 	@RequestMapping("/crearEventoNuevo")
 	public ModelAndView register(HttpServletRequest req) {
@@ -148,9 +152,13 @@ public class EventoController {
 
 		Evento e = eventoService.findById(id_evento);
 		// conseguir likes y eventos con los repsectivos servicios
+		
+		//recuperamos el nombre del user con el idUser
+		
+		User user = userService.findById(e.getIdUser());
 
 		ArrayList<Like> listaLikes = likeService.findLikesByIdEvento(e.getIdEvento());
-
+		
 		ArrayList<Comentario> listaComentarios = comentarioService.findComentariosByIdEvento(id_evento);
 
 		session.setAttribute("totallikes", listaLikes.size());
@@ -163,6 +171,8 @@ public class EventoController {
 		req.setAttribute("longitud", e.getLongitud());
 		req.setAttribute("descripcion", e.getDescripcion());
 		req.setAttribute("imagen", e.getImagen());
+		req.setAttribute("nombreUser", user.getName());
+		req.setAttribute("apellidoUser", user.getSurname());
 
 		req.setAttribute("listaLikes", listaLikes);
 

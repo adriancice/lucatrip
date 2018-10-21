@@ -28,8 +28,13 @@ public class EventoServiceImpl implements IEventoService {
 
 	@Override
 	public Collection<Evento> findAll() {
-		Iterable<Evento> itr = eventoRepository.findAll();
-		return (Collection<Evento>) itr;
+		ArrayList<Evento> lista = (ArrayList<Evento>) eventoRepository.findAll();
+		Collection<Evento> listaAlReves = new ArrayList<>();
+		for (int i = lista.size(); i-- > 0;) {
+			listaAlReves.add(lista.get(i));
+		}
+
+		return listaAlReves;
 	}
 
 	@Override
@@ -72,11 +77,10 @@ public class EventoServiceImpl implements IEventoService {
 		return eventoRepository.findAll(pageable);
 	}
 
-	
 	@Override
-	public List<Evento> serchEvento(String pais,String ciudad,String sitio){
-		Optional<List<Evento>> searchEvento=eventoRepository.findbyPaisCiudadSitio(pais, ciudad, sitio);
-		if(searchEvento.isPresent()) {
+	public List<Evento> serchEvento(String pais, String ciudad, String sitio) {
+		Optional<List<Evento>> searchEvento = eventoRepository.findbyPaisCiudadSitio(pais, ciudad, sitio);
+		if (searchEvento.isPresent()) {
 			return searchEvento.get();
 		}
 		return null;
@@ -85,8 +89,8 @@ public class EventoServiceImpl implements IEventoService {
 	@Override
 	public List<Evento> serchEvento(String pais, String ciudad) {
 
-		Optional<List<Evento>> searchEvento=eventoRepository.findbyPaisCiudadSitio(pais, ciudad);
-		if(searchEvento.isPresent()) {
+		Optional<List<Evento>> searchEvento = eventoRepository.findbyPaisCiudadSitio(pais, ciudad);
+		if (searchEvento.isPresent()) {
 			return searchEvento.get();
 		}
 		return null;
@@ -95,8 +99,8 @@ public class EventoServiceImpl implements IEventoService {
 	@Override
 	public List<Evento> serchEvento(String pais) {
 
-		Optional<List<Evento>> searchEvento=eventoRepository.findbyPaisCiudadSitio(pais);
-		if(searchEvento.isPresent()) {
+		Optional<List<Evento>> searchEvento = eventoRepository.findbyPaisCiudadSitio(pais);
+		if (searchEvento.isPresent()) {
 			return searchEvento.get();
 		}
 		return null;

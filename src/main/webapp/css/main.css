@@ -35,3 +35,280 @@
 #myBtn:hover {
 	background-color: #555; /* Add a dark-grey background on hover */
 }
+
+/*********************** Demo - 5  ver mi perfil *******************/
+.box5 {
+	background: #444;
+	position: relative
+}
+
+.box5:after, .box5:before {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	background: #10a5b8;
+	position: absolute;
+	top: -80px;
+	left: 15px;
+	opacity: 0;
+	z-index: 1;
+	transition: all .35s ease
+}
+
+.box5:after {
+	top: auto;
+	left: auto;
+	bottom: -80px;
+	right: 15px
+}
+
+.box5:hover:after, .box5:hover:before {
+	opacity: .75;
+	transform: scale(8);
+	transition-delay: .15s
+}
+
+.box5 img {
+	width: 100%;
+	height: auto;
+	transition: all .35s ease-out 0s
+}
+
+.box5:hover img {
+	opacity: .4
+}
+
+.box5 .icon {
+	margin: 0;
+	position: absolute;
+	bottom: 15px;
+	right: 15px;
+	z-index: 2;
+	transform: scale(0);
+	transition: all .35s ease-out
+}
+
+.box5:hover .icon {
+	transform: scale(1);
+	transition-delay: .15s
+}
+
+.box5 .icon li a {
+	display: block;
+	width: 35px;
+	height: 35px;
+	line-height: 35px;
+	background: #fff;
+	font-size: 18px;
+	color: #444;
+	margin-right: 10px;
+	position: relative;
+	transition: all .5s ease 0s
+}
+
+.box5 .icon li a:hover {
+	background: #444;
+	color: #fff
+}
+
+.box5 .box-content {
+	padding: 20px 15px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1
+}
+
+.box5 .title {
+	font-size: 20px;
+	font-weight: 800;
+	color: #fff;
+	margin: 0 0 5px;
+	opacity: 0;
+	transform: translate(-20px, -20px);
+	transition: all .35s ease-out
+}
+
+.box5:hover .title {
+	opacity: 1;
+	transform: translate(0, 0);
+	transition-delay: .15s
+}
+
+.box5 .post {
+	display: inline-block;
+	font-size: 16px;
+	color: #fff;
+	opacity: 0;
+	transform: translate(-20px, -20px);
+	transition: all .35s ease-out
+}
+
+.box5:hover .post {
+	opacity: 1;
+	transform: translate(0, 0);
+	transition-delay: .15s
+}
+
+.box6 .title, .box6 img, .box6:after {
+	transition: all .35s ease 0s
+}
+
+@media only screen and (max-width:990px) {
+	.box5 {
+		margin-bottom: 30px
+	}
+}
+
+/*********************** FOOTER *******************/
+.context-dark, .bg-gray-dark, .bg-primary {
+	color: rgba(255, 255, 255, 0.8);
+}
+
+.footer-classic a, .footer-classic a:focus, .footer-classic a:active {
+	color: #ffffff;
+}
+
+.nav-list li {
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.nav-list li a:hover:before {
+	margin-left: 0;
+	opacity: 1;
+	visibility: visible;
+}
+
+ul, ol {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.social-inner {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	padding: 23px;
+	font: 900 13px/1 "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI",
+		Roboto, "Helvetica Neue", Arial, sans-serif;
+	text-transform: uppercase;
+	color: rgba(255, 255, 255, 0.5);
+}
+
+.social-container .col {
+	border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-list li a:before {
+	content: "\f14f";
+	font: 400 21px/1 "Material Design Icons";
+	color: #4d6de6;
+	display: inline-block;
+	vertical-align: baseline;
+	margin-left: -28px;
+	margin-right: 7px;
+	opacity: 0;
+	visibility: hidden;
+	transition: .22s ease;
+}
+
+/*********************** CAROUSEL *******************/
+
+/* GLOBAL STYLES
+-------------------------------------------------- */
+/* Padding below the footer and lighter body text */
+body {
+	padding-bottom: 3rem;
+	color: #5a5a5a;
+}
+
+/* CUSTOMIZE THE CAROUSEL
+-------------------------------------------------- */
+
+/* Carousel base class */
+.carousel {
+	margin-bottom: 4rem;
+}
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+	bottom: 3rem;
+	z-index: 10;
+}
+
+/* Declare heights because of positioning of img element */
+.carousel-item {
+	height: 32rem;
+	background-color: #777;
+	height: 400px;
+}
+
+.carousel-item>img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	min-width: 100%;
+	height: 32rem;
+}
+
+/* MARKETING CONTENT
+-------------------------------------------------- */
+
+/* Center align the text within the three columns below the carousel */
+.marketing .col-lg-4 {
+	margin-bottom: 1.5rem;
+	text-align: center;
+}
+
+.marketing h2 {
+	font-weight: 400;
+}
+
+.marketing .col-lg-4 p {
+	margin-right: .75rem;
+	margin-left: .75rem;
+}
+
+/* Featurettes
+------------------------- */
+.featurette-divider {
+	margin: 5rem 0; /* Space out the Bootstrap <hr> more */
+}
+
+/* Thin out the marketing headings */
+.featurette-heading {
+	font-weight: 300;
+	line-height: 1;
+	letter-spacing: -.05rem;
+}
+
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+@media
+(
+min-width
+:
+40em)
+{
+/* Bump up size of carousel content */
+.carousel-caption p {
+	margin-bottom: 1.25rem;
+	font-size: 1.25rem;
+	line-height: 1.4;
+}
+
+.featurette-heading {
+	font-size: 50px;
+}
+
+}
+@media ( min-width : 62em) {
+	.featurette-heading {
+		margin-top: 7rem;
+	}
+}
+
+/*********************** CAROUSEL *******************/
+

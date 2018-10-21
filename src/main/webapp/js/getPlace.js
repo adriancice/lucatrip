@@ -26,7 +26,7 @@ function initialize() {
 								console.log(document.getElementById('latitud').value);
 								console.log(document.getElementById('longitud').value);
 								var photos = place.photos;
-								var url = photos[1].getUrl({'maxWidth': 1920, 'maxHeight': 1080});
+								var url = photos[1].getUrl({'maxWidth': 800, 'maxHeight': 600});
 								document.getElementById('url').value =  photos[0].getUrl({'maxWidth': 1920, 'maxHeight': 1080});
 
 								

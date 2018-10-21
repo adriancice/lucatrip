@@ -15,8 +15,8 @@
 <style>
 /* Set the size of the div element that contains the map */
 #map {
-	height: 500px; /* The height is 400 pixels */
-	width: 40%; /* The width is the width of the web page */
+	height: 400px; /* The height is 400 pixels */
+	width: 400px; /* The width is the width of the web page */
 	margin: 0 auto 0 auto;
 }
 </style>
@@ -26,25 +26,27 @@
 
 	<%@ include file="fragments/header.jsp"%>
 
-	<input type="hidden" name="latitud" id="latitud" value="${latitud }">
-	<input type="hidden" name="longitud" id="longitud" value="${longitud }">
-
-	<div class="container-fluid row my-5 px-3">
-		<div class="col-md-6 text-center">
-			<h2>${lugar}</h2>
-			<h3>${ciudad },&nbsp;&nbsp;${pais }</h3>
-			<div id="imagen" class="container text-center mt">
-				<img alt="" src="${imagen}">
+	<div class="container mb-5">
+		<div class="row">
+			<div class="col-md-6 my-5">
+				<div>
+					<h2>${lugar}</h2>
+					<h3>${ciudad },&nbsp;&nbsp;${pais }</h3>
+					<img alt="" src="${imagen}">
+				</div>
+			</div>
+			<div class="col-md-6 my-5">
+				<div id="map"></div>
 			</div>
 		</div>
-		<div class="col-md-6 mt-5" id="map"></div>
 	</div>
+
 	<div class="container-fluid gedf-wrapper">
 		<div class="row">
 			<div class="col-md-3">
 				<div class="card">
 					<div class="card-body">
-						<div class="h5">@autor</div>
+						<div class="h5">@${nombreUser }&nbsp;${apellidoUser }</div>
 						<div class="h6 text-muted text-uppercase">descripcion del
 							evento</div>
 						<div class="h7">${descripcion}</div>
@@ -58,12 +60,16 @@
 								<c:when test="${sessionScope.user != null }">
 									<a
 										href="/darlike?id_user=${sessionScope.user.idUser}&id_evento=${id_evento}">
-										<i class="fa fa-gittip"></i>&nbsp;&nbsp;Like
+										<i class="fa fa-gittip"></i>&nbsp;Like
 									</a>
 								</c:when>
 								<c:otherwise>
-									<a> <i class="fa fa-gittip"></i>Like&nbsp;&nbsp;&nbsp;${sessionScope.totallikes }
+									<a> <i class="fa fa-gittip"></i>&nbsp;Like&nbsp;&nbsp;&nbsp;${sessionScope.totallikes }
 									</a>
+									<p>
+										Para dar al like tienes que estar logueado, pulse <a
+											href="login">LOGIN</a> o <a href="register">REGISTRAR</a>
+									</p>
 								</c:otherwise>
 							</c:choose></li>
 					</ul>
@@ -73,7 +79,7 @@
 			<div class="col-md-6 gedf-main">
 				<!--- \\\\\\\ Comentarios-->
 				<c:forEach var="c" items="${listaComentarios}">
-					<div class="card gedf-card my-4">
+					<div class="card gedf-card mb-4">
 
 						<div class="card-header">
 							<div class="d-flex justify-content-between align-items-center">
@@ -150,32 +156,22 @@
 				<!-- Escribir comentario /////-->
 			</div>
 
+			<!-- ///// Aside -->
 			<div class="col-md-3">
 				<div class="card gedf-card">
 					<div class="card-body">
-						<h5 class="card-title">Card title</h5>
-						<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+						<h5 class="card-title">Observaciones</h5>
 						<p class="card-text">Some quick example text to build on the
 							card title and make up the bulk of the card's content.</p>
-						<a href="#" class="card-link">Card link</a> <a href="#"
-							class="card-link">Another link</a>
-					</div>
-				</div>
-				<div class="card gedf-card">
-					<div class="card-body">
-						<h5 class="card-title">Card title</h5>
-						<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-						<p class="card-text">Some quick example text to build on the
-							card title and make up the bulk of the card's content.</p>
-						<a href="#" class="card-link">Card link</a> <a href="#"
-							class="card-link">Another link</a>
 					</div>
 				</div>
 			</div>
+			<!-- Aside /////-->
 		</div>
 	</div>
 
-
+	<input type="hidden" name="latitud" id="latitud" value="${latitud }">
+	<input type="hidden" name="longitud" id="longitud" value="${longitud }">
 
 
 	<script>
