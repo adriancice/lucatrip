@@ -37,7 +37,7 @@ public class EventoController {
 
 	@Autowired
 	private ILikeService likeService;
-	
+
 	@Autowired
 	private IUserSevice userService;
 
@@ -53,7 +53,6 @@ public class EventoController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 		try {
 			modelAndView.setViewName("crearEvento");
 			User user = (User) session.getAttribute("user");
@@ -152,13 +151,12 @@ public class EventoController {
 
 		Evento e = eventoService.findById(id_evento);
 		// conseguir likes y eventos con los repsectivos servicios
-		
-		//recuperamos el nombre del user con el idUser
-		
+
+		// recuperamos el nombre del user con el idUser
 		User user = userService.findById(e.getIdUser());
 
 		ArrayList<Like> listaLikes = likeService.findLikesByIdEvento(e.getIdEvento());
-		
+
 		ArrayList<Comentario> listaComentarios = comentarioService.findComentariosByIdEvento(id_evento);
 
 		session.setAttribute("totallikes", listaLikes.size());
@@ -177,6 +175,34 @@ public class EventoController {
 		req.setAttribute("listaLikes", listaLikes);
 
 		req.setAttribute("listaComentarios", listaComentarios);
+		return modelAndView;
+	}
+
+	@RequestMapping("/borrarEvento")
+	public ModelAndView borrarEvento(HttpServletRequest req) {
+		logger.info("/borrarEvento");
+		HttpSession session = req.getSession(true);
+		User user = (User) session.getAttribute("user");
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("verMisEventos");
+		int id = Integer.parseInt(req.getParameter("idEvento"));
+		eventoService.delete(id);
+		modelAndView.addObject("listarMisEventos", eventoService.findAllById(user.getIdUser()));
+		if (eventoService.findAllById(user.getIdUser()).isEmpty()) {
+			modelAndView.addObject("mensajeNoEventos", "No tienes ningun evento creado !");
+		}
+		return modelAndView;
+	}
+	
+	@RequestMapping("/editarEvento")
+	public ModelAndView editarEvento(HttpServletRequest req) {
+		logger.info("/editarEvento");
+		HttpSession session = req.getSession(true);
+		User user = (User) session.getAttribute("user");
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("editarEvento");
+		int id = Integer.parseInt(req.getParameter("idEvento"));
+
 		return modelAndView;
 	}
 }

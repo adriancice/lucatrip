@@ -30,12 +30,14 @@ public class ComentariosController {
 			@RequestParam("comentario") String comentario) {
 		session = req.getSession(true);
 		User u = (User) session.getAttribute("user");
-		int id_user = u.getIdUser();
+		String nombreUser = u.getName() + " " + u.getSurname();
 
 		Comentario nuevoComentario = new Comentario();
 		nuevoComentario.setComentario(comentario);
 		nuevoComentario.setIdEvento(id_evento);
-		nuevoComentario.setIdUser(id_user);
+		nuevoComentario.setIdUser(nombreUser);
+		nuevoComentario.setFotoUser(u.getFoto());
+
 		comentarioService.save(nuevoComentario);
 
 		logger.error("comentar");
@@ -45,6 +47,5 @@ public class ComentariosController {
 		modelAndView.setView(new RedirectView("verevento?id_evento=" + id_evento + "", true));
 
 		return modelAndView;
-
 	}
 }

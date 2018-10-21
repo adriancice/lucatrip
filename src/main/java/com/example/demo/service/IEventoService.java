@@ -22,7 +22,7 @@ public interface IEventoService {
 
 	Collection<Evento> findAll();
 
-	List<Evento> findAllById(int id);
+	Collection<Evento> findAllById(int id);
 
 	Page<Evento> findAll(Pageable pageable);
 

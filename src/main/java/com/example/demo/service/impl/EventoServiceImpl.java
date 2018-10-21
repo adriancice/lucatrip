@@ -27,17 +27,6 @@ public class EventoServiceImpl implements IEventoService {
 	}
 
 	@Override
-	public Collection<Evento> findAll() {
-		ArrayList<Evento> lista = (ArrayList<Evento>) eventoRepository.findAll();
-		Collection<Evento> listaAlReves = new ArrayList<>();
-		for (int i = lista.size(); i-- > 0;) {
-			listaAlReves.add(lista.get(i));
-		}
-
-		return listaAlReves;
-	}
-
-	@Override
 	public Boolean delete(int id) {
 		if (eventoRepository.existsById(id)) {
 			eventoRepository.deleteById(id);
@@ -62,14 +51,28 @@ public class EventoServiceImpl implements IEventoService {
 	}
 
 	@Override
-	public List<Evento> findAllById(int id) {
-		List<Evento> eventos = new ArrayList<>();
+	public Collection<Evento> findAll() {
+		ArrayList<Evento> lista = (ArrayList<Evento>) eventoRepository.findAll();
+		Collection<Evento> listaAlReves = new ArrayList<>();
+		for (int i = lista.size(); i-- > 0;) {
+			listaAlReves.add(lista.get(i));
+		}
+		return listaAlReves;
+	}
+
+	@Override
+	public Collection<Evento> findAllById(int id) {
+		ArrayList<Evento> eventos = new ArrayList<>();
 		for (Evento e : eventoRepository.findAll()) {
 			if (e.getIdUser() == id) {
 				eventos.add(e);
 			}
 		}
-		return eventos;
+		Collection<Evento> eventosAlReves = new ArrayList<>();
+		for (int i = eventos.size(); i-- > 0;) {
+			eventosAlReves.add(eventos.get(i));
+		}
+		return eventosAlReves;
 	}
 
 	@Override

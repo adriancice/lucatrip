@@ -107,6 +107,8 @@ public class LoginController {
 					System.err.println("error foto");
 					e.printStackTrace();
 				}
+			}else {
+				user.setFoto("userFoto.jpg");
 			}
 			userService.save(user);
 			mensaje = "Genial! Te has registrado perfectamente";
