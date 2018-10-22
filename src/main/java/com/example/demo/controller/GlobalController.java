@@ -29,9 +29,12 @@ public class GlobalController {
 	@RequestMapping("/")
 	public ModelAndView index(HttpServletRequest req) {
 		logger.info("index");
+		HttpSession session = req.getSession(true);
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("index");
 		modelAndView.addObject("listaEventos", eventoService.findAll());
+		session.setAttribute("mensaje", "");
+
 		return modelAndView;
 	}
 

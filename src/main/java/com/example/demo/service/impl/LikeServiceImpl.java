@@ -65,5 +65,10 @@ public class LikeServiceImpl implements ILikeService {
 		}
 		return false;
 	}
+	
+	@Override
+	public void deleteAllLikesByIdUsuario(int id_user) {
+		 likeRepository.deleteAllLikesByIdUser(id_user);
+	}
 
 }

@@ -9,7 +9,7 @@
 <head>
 <%@ include file="fragments/head.jsp"%>
 
-<title>LucaTrip</title>
+<title>Detalles evento</title>
 <script
 	src="http://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyBa-NxlN1zc0dlp5bdYBzt1xzS2F1ZVlro"
 	type="text/javascript"></script>
@@ -34,10 +34,12 @@
 				<div>
 					<h2>${lugar}</h2>
 					<h3>${ciudad },&nbsp;&nbsp;${pais }</h3>
-					<img alt="foto del evento" src="${imagen}" width="400" height="400">
+					<img alt="foto del evento" src="${imagen}" width="600" height="400">
 				</div>
 			</div>
 			<div class="col-md-6 my-5">
+			<h2> &nbsp;</h2>
+			<h3> &nbsp;</h3>
 				<div id="map"></div>
 			</div>
 		</div>
@@ -51,29 +53,36 @@
 						<div class="h5">@${nombreUser }&nbsp;${apellidoUser }</div>
 						<div class="h6 text-muted text-uppercase">descripcion del
 							evento</div>
+						
 						<div class="h7">${descripcion}</div>
+							
 					</div>
 					<ul class="list-group list-group-flush">
 						<li class="list-group-item">
 							<div class="h6 text-muted">Like´s totales</div>
 							<div class="h5">${sessionScope.totallikes }</div>
 						</li>
+					
 						<li class="list-group-item"><c:choose>
 								<c:when test="${sessionScope.user != null }">
 									<a
 										href="/darlike?id_user=${sessionScope.user.idUser}&id_evento=${id_evento}">
 										<i class="fa fa-gittip"></i>&nbsp;Like
 									</a>
+									
 								</c:when>
 								<c:otherwise>
-									<a> <i class="fa fa-gittip"></i>&nbsp;Like&nbsp;&nbsp;&nbsp;${sessionScope.totallikes }
-									</a>
+								</a>
 									<p>
 										Para dar al like tienes que estar logueado, pulse <a
-											href="login">LOGIN</a> o <a href="register">REGISTRAR</a>
+											href="login">LOGIN</a> <a href="register">REGISTRAR</a>
 									</p>
 								</c:otherwise>
 							</c:choose></li>
+							<c:if test="${sessionScope.user != null }">
+							<a>${sessionScope.mensaje }</a>
+							</c:if>
+								
 					</ul>
 				</div>
 			</div>

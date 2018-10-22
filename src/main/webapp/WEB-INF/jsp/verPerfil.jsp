@@ -73,9 +73,11 @@
 						<a href="/modificarPerfil">EDITAR USER</a>
 
 					</div>
+					
+					
 				</div>
 			</div>
-		</div>
+			</div>
 	</div>
 
 

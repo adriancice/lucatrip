@@ -59,5 +59,10 @@ public class ComentarioServiceImpl implements IComentarioService {
 		}
 		return listaAlReves;
 	}
+	
+	@Override
+	public void deleteAllComentariosByIdUser(int id_user) {
+		comentarioRepository.deleteAllComentariosByIdUser(id_user);
+	}
 
 }

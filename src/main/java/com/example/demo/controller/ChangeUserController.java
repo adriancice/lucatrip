@@ -19,6 +19,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.example.demo.model.User;
 import com.example.demo.service.IEventoService;
+import com.example.demo.service.IComentarioService;
+import com.example.demo.service.ILikeService;
 import com.example.demo.service.IUserSevice;
 import com.example.demo.util.SHA_512;
 
@@ -31,7 +33,10 @@ public class ChangeUserController {
 
 	@Autowired
 	private IUserSevice userService;
-	
+	@Autowired
+	private ILikeService likeService;
+	@Autowired
+	private IComentarioService comentarioService;
 	@Autowired
 	private IEventoService eventoService;
 	
@@ -118,4 +123,24 @@ public class ChangeUserController {
 		
 		return modelAndView;
 	}
+	
+	@RequestMapping(value="/deleteUser")
+	public ModelAndView deleteUser(HttpServletRequest req) {
+		session=req.getSession(true);
+		logger.error("deleteUser");
+		ModelAndView modelAndView=new ModelAndView("index");
+		User user = (User) session.getAttribute("user");
+		int id_user = user.getIdUser();
+		comentarioService.deleteAllComentariosByIdUser(id_user);
+		System.err.println("borrado comentarios");
+		eventoService.deleteAllEventosByIdUser(id_user);
+		System.err.println("borrados eventos");
+		likeService.deleteAllLikesByIdUsuario(id_user);
+		System.err.println("borrados likes");
+		userService.delete(id_user);
+		System.err.println("borrado usuario");
+
+		return modelAndView;
+	}
+	
 }

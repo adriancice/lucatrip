@@ -65,11 +65,12 @@
 			<h3>Fecha del evento</h3>
 			<input required="required" type="datetime-local" id="fecha"
 				name="fecha" max="9999-12-12T00:00:00.00">
-
+		</div>
 
 
 		<div class="container text-center pt-3" id="enviar">
-			<input class="btn btn-success" type="submit" name="enviar" value="Crear evento">
+			<input class="btn btn-success" type="submit" name="enviar"
+				value="Crear evento">
 		</div>
 
 

@@ -54,10 +54,10 @@ public class LikesController {
 			like.setIdEvento(id_evento);
 			like.setIdUser(id_user);
 			likeService.save(like);
-			mensaje="Añadido con exito";
-			System.err.println("Añadidp");
+			mensaje="Votado con éxito";
+			System.err.println("Like añadido");
 		}else {
-			mensaje="Ya has votado";
+			mensaje="Ya has votado este evento anteriormente";
 			System.err.println("Ya has votado");
 		}
 		session.setAttribute("mensaje", mensaje);

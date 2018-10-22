@@ -18,4 +18,7 @@ public interface ILikeService {
 	
 	Boolean existeLikeIdUser(int iduser, int idEvento);
 
+	void deleteAllLikesByIdUsuario(int id_user);
+
+
 }
