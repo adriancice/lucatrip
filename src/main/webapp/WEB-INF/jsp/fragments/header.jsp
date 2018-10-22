@@ -27,15 +27,10 @@
 							<a class="dropdown-item" href="/verPerfil">Ver mi perfil</a> <a
 								class="dropdown-item" href="/crearEvento">Crear evento</a> <a
 								class="dropdown-item" href="/verMisEventos">Ver mis eventos</a>
+								 <a class="dropdown-item" href="/verGustados">Eventos que me han gustado</a>
 							<hr>
 							<button class="dropdown-item" type="submit">Logout</button>
-<<<<<<< HEAD
-							<a class="dropdown-item" href="/crearEvento">Crear evento</a> <a
-								class="dropdown-item" href="/verMisEventos">Ver mis eventos</a> <hr><a
-								class="dropdown-item" href="/verPerfil">Ver mi perfil</a> <a
-								class="dropdown-item" href="/verGustados">Eventos que me han gustado</a>
-=======
->>>>>>> branch 'master' of https://github.com/adriancice/lucatrip.git
+							
 						</form>
 					</div>
 				</div>
