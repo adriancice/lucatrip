@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 /**
  * La clase Entity de los comentarios
  * 
@@ -29,10 +31,13 @@ public class Comentario implements Serializable {
 	private String comentario;
 
 	@Column(name = "id_user")
-	private int idUser;
+	private String idUser;
 
 	@Column(name = "id_evento")
 	private int idEvento;
+
+	@Column(name = "foto_user")
+	private String fotoUser;
 
 	private Date fechaComentario;
 
@@ -57,11 +62,11 @@ public class Comentario implements Serializable {
 		this.comentario = comentario;
 	}
 
-	public int getIdUser() {
+	public String getIdUser() {
 		return idUser;
 	}
 
-	public void setIdUser(int idUser) {
+	public void setIdUser(String idUser) {
 		this.idUser = idUser;
 	}
 
@@ -79,6 +84,14 @@ public class Comentario implements Serializable {
 
 	public void setFechaComentario(Date fechaComentario) {
 		this.fechaComentario = fechaComentario;
+	}
+
+	public String getFotoUser() {
+		return fotoUser;
+	}
+
+	public void setFotoUser(String fotoUser) {
+		this.fotoUser = fotoUser;
 	}
 
 	private static final long serialVersionUID = 1L;

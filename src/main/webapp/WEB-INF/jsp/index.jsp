@@ -7,8 +7,10 @@
 <%@ include file="fragments/head.jsp"%>
 <meta charset="utf-8">
 
-<script src="http://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyBa-NxlN1zc0dlp5bdYBzt1xzS2F1ZVlro" type="text/javascript"></script>
-	<title>LucaTrip</title>
+<script
+	src="http://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyBa-NxlN1zc0dlp5bdYBzt1xzS2F1ZVlro"
+	type="text/javascript"></script>
+<title>LucaTrip</title>
 </head>
 <body>
 
@@ -48,7 +50,8 @@
 								quam. Donec id elit non mi porta gravida at eget metus. Nullam
 								id dolor id nibh ultricies vehicula ut id elit.</p>
 							<p>
-								<a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a>
+								<a class="btn btn-lg btn-primary" href="#" role="button">Learn
+									more</a>
 							</p>
 						</div>
 					</div>
@@ -79,35 +82,45 @@
 		</div>
 	</div>
 	<!-- Fin carrousel del index -->
-		
+
 	<!-- Empieza buscador -->
-	
+
 	<div id="buscador" class="container text-center mt">
 		<form action="/searchEvent" method="post">
-		<h3>Buscar Eventos</h3>
-	  	<c:if test="${bandera==false}">
-			<div class="alert alert-danger alert-dismissible show" role="alert">
-				<strong>${mensaje}</strong>
-				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
+			<h3>Buscar Eventos</h3>
+			<c:if test="${bandera==false}">
+				<div class="alert alert-danger alert-dismissible show" role="alert">
+					<strong>${mensaje}</strong>
+					<button type="button" class="close" data-dismiss="alert"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+			</c:if>
+			<div class=" container form-group has-search">
+				<span class="fa fa-search form-control-feedback"></span> <input
+					id="searchTextField" type="text" class="form-control"
+					placeholder="Elige un lugar" autocomplete="on" runat="server"
+					required autofocus>
 			</div>
-	 	</c:if>
-			<input id="searchTextField" type="text" size="50" placeholder="Elige un lugar" autocomplete="on" runat="server" required="required" />
-				<input type="hidden" id="latitud" name="latitud" /> 
-				<input type="hidden" id="longitud" name="longitud" /> 
-				<input type="hidden" id="lugar" name="lugar" /> 
-				<input type="hidden" id="ciudad" name="ciudad" />
-				<input type="hidden" id="pais" name="pais" />
-				<input type="hidden" id="url" name="url" />
-				 
+			<input type="hidden" id="latitud" name="latitud" /> <input
+				type="hidden" id="longitud" name="longitud" /> <input type="hidden"
+				id="lugar" name="lugar" /> <input type="hidden" id="ciudad"
+				name="ciudad" /> <input type="hidden" id="pais" name="pais" /> <input
+				type="hidden" id="url" name="url" />
+
 			<div class="container text-center" id="enviar">
-				<input type="submit" name="enviar">
+				<input class="btn btn-success" type="submit" name="enviarbtn"
+					disabled="disabled" id="enviarbtn">
 			</div>
 		</form>
 	</div>
 	<!-- Finaliza buscador -->
 	<!-- Start of card´s -->
+	<div class="container mt-5">
+		<h3 class="text-uppercase">ultimos eventos añadidos</h3>
+	</div>
+
 	<div class="container-fluid row my-5 px-3">
 		<c:forEach var="e" items="${listaEventos}">
 			<div class="col-md-3">
@@ -118,17 +131,17 @@
 						<strong>${e.ciudad }</strong>
 						<p class="card-text">${e.descripcion }.</p>
 						<a href="/verevento?id_evento=${e.idEvento}"
-							class="btn btn-sm btn-info float-right">Read more &raquo;</a>
+							class="btn btn-sm btn-info float-right">Ver más detalles &raquo;</a>
 					</div>
 				</div>
 			</div>
 		</c:forEach>
 	</div>
 	<!-- end of card -->
-	
+
 	<!-- Optional JavaScript-->
-		<script src="js/getPlace.js"></script>
-	<!--  Optional JavaScript -->
+	<script src="js/getPlace.js"></script>
+
 
 	<%@ include file="fragments/footer.jsp"%>
 </body>

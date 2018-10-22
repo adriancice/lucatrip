@@ -47,10 +47,17 @@ public class ComentarioServiceImpl implements IComentarioService {
 		return (Collection<Comentario>) itr;
 	}
 	
+	/**
+	 * devolvemos una lista con los comentarios ordenados de los mas recientes
+	 */
 	@Override
 	public ArrayList<Comentario> findComentariosByIdEvento(int id_evento) {
-		ArrayList<Comentario> itr = comentarioRepository.findByIdEvento(id_evento);
-		return itr;
+		ArrayList<Comentario> lista = comentarioRepository.findByIdEvento(id_evento);
+		ArrayList<Comentario> listaAlReves = new ArrayList<>();
+		for (int i = lista.size(); i-- > 0;) {
+			listaAlReves.add(lista.get(i));
+		}
+		return listaAlReves;
 	}
 
 }

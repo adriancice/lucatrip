@@ -31,7 +31,7 @@
 						<strong>${e.ciudad }</strong>
 						<p class="card-text">${e.descripcion }.</p>
 						<a href="/verevento?id_evento=${e.idEvento}"
-							class="btn btn-sm btn-info float-right">Read more &raquo;</a>
+							class="btn btn-sm btn-info float-right">Ver más detalles &raquo;</a>
 					</div>
 				</div>
 			</div>

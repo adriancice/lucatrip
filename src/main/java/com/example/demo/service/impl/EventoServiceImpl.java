@@ -27,12 +27,6 @@ public class EventoServiceImpl implements IEventoService {
 	}
 
 	@Override
-	public Collection<Evento> findAll() {
-		Iterable<Evento> itr = eventoRepository.findAll();
-		return (Collection<Evento>) itr;
-	}
-
-	@Override
 	public Boolean delete(int id) {
 		if (eventoRepository.existsById(id)) {
 			eventoRepository.deleteById(id);
@@ -57,14 +51,28 @@ public class EventoServiceImpl implements IEventoService {
 	}
 
 	@Override
-	public List<Evento> findAllById(int id) {
-		List<Evento> eventos = new ArrayList<>();
+	public Collection<Evento> findAll() {
+		ArrayList<Evento> lista = (ArrayList<Evento>) eventoRepository.findAll();
+		Collection<Evento> listaAlReves = new ArrayList<>();
+		for (int i = lista.size(); i-- > 0;) {
+			listaAlReves.add(lista.get(i));
+		}
+		return listaAlReves;
+	}
+
+	@Override
+	public Collection<Evento> findAllById(int id) {
+		ArrayList<Evento> eventos = new ArrayList<>();
 		for (Evento e : eventoRepository.findAll()) {
 			if (e.getIdUser() == id) {
 				eventos.add(e);
 			}
 		}
-		return eventos;
+		Collection<Evento> eventosAlReves = new ArrayList<>();
+		for (int i = eventos.size(); i-- > 0;) {
+			eventosAlReves.add(eventos.get(i));
+		}
+		return eventosAlReves;
 	}
 
 	@Override
@@ -72,11 +80,10 @@ public class EventoServiceImpl implements IEventoService {
 		return eventoRepository.findAll(pageable);
 	}
 
-	
 	@Override
-	public List<Evento> serchEvento(String pais,String ciudad,String sitio){
-		Optional<List<Evento>> searchEvento=eventoRepository.findbyPaisCiudadSitio(pais, ciudad, sitio);
-		if(searchEvento.isPresent()) {
+	public List<Evento> serchEvento(String pais, String ciudad, String sitio) {
+		Optional<List<Evento>> searchEvento = eventoRepository.findbyPaisCiudadSitio(pais, ciudad, sitio);
+		if (searchEvento.isPresent()) {
 			return searchEvento.get();
 		}
 		return null;
@@ -85,8 +92,8 @@ public class EventoServiceImpl implements IEventoService {
 	@Override
 	public List<Evento> serchEvento(String pais, String ciudad) {
 
-		Optional<List<Evento>> searchEvento=eventoRepository.findbyPaisCiudadSitio(pais, ciudad);
-		if(searchEvento.isPresent()) {
+		Optional<List<Evento>> searchEvento = eventoRepository.findbyPaisCiudadSitio(pais, ciudad);
+		if (searchEvento.isPresent()) {
 			return searchEvento.get();
 		}
 		return null;
@@ -95,8 +102,8 @@ public class EventoServiceImpl implements IEventoService {
 	@Override
 	public List<Evento> serchEvento(String pais) {
 
-		Optional<List<Evento>> searchEvento=eventoRepository.findbyPaisCiudadSitio(pais);
-		if(searchEvento.isPresent()) {
+		Optional<List<Evento>> searchEvento = eventoRepository.findbyPaisCiudadSitio(pais);
+		if (searchEvento.isPresent()) {
 			return searchEvento.get();
 		}
 		return null;

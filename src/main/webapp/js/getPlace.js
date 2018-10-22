@@ -1,4 +1,5 @@
 function initialize() {
+
 			var input = document.getElementById('searchTextField');
 			var autocomplete = new google.maps.places.Autocomplete(input);
 			google.maps.event
@@ -10,8 +11,9 @@ function initialize() {
 								
 								var latlng;
 								var place = autocomplete.getPlace();
-								
-								
+								$('#enviarbtn').removeAttr('disabled');
+
+
 								latlng = new google.maps.LatLng(place.geometry.location.lat(), document.getElementById('longitud').value = place.geometry.location.lng()  ); // Madrid, ES
 								document.getElementById('lugar').value = place.name;
 								document.getElementById('latitud').value = place.geometry.location
@@ -24,7 +26,7 @@ function initialize() {
 								console.log(document.getElementById('latitud').value);
 								console.log(document.getElementById('longitud').value);
 								var photos = place.photos;
-								var url = photos[1].getUrl({'maxWidth': 1920, 'maxHeight': 1080});
+								var url = photos[1].getUrl({'maxWidth': 800, 'maxHeight': 600});
 								document.getElementById('url').value =  photos[0].getUrl({'maxWidth': 1920, 'maxHeight': 1080});
 
 								
