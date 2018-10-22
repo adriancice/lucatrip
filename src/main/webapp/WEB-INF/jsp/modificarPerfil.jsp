@@ -41,6 +41,14 @@
 	<!-- Cambiar contraseña -->  
 	<form class="form-signin" id="changepassword" action="/changePassword" method="post" enctype="multipart/form-data">
 		<h2>Password</h2>
+		<c:if test="${band==true}">
+			<div class="alert alert-danger alert-dismissible show" role="alert">
+					<strong>Fallo al cambiar la contraseña</strong>
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+		</c:if>
 		<h5>Contaseña Antigua:</h5>
 		<input type="password"name="old_password" class="form-control my-3" placeholder="Contraseña Antigua" required autofocus />  
 		<h5>Contraseña Nueva:</h5>

@@ -13,12 +13,14 @@
 	<%@ include file="fragments/header.jsp"%>
 
 	<h3 class="text-center">Mis eventos gustados</h3>
-	
+	<c:if test="${mensajeNoFavoritos != null }">
+		<h5 class="container">${mensajeNoFavoritos }</h5>
+	</c:if>
 	<!-- Start of card´s -->
 	<div class="container-fluid row mt-5 px-3">
 		<c:forEach var="ev" items="${eventosGustados}">
 			<div class="col-md-3">
-				<div class="card">
+				<div class="card h-100">
 					<img class="card-img-top" src="${ev.imagen }" alt="Card image cap">
 					<div class="card-body">
 						<h5 class="card-title border-bottom pb-3">${ev.sitio }</h5>

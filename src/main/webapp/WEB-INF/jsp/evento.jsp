@@ -48,7 +48,7 @@
 	<div class="container-fluid gedf-wrapper">
 		<div class="row">
 			<div class="col-md-3">
-				<div class="card">
+				<div class="card h-100">
 					<div class="card-body">
 						<div class="h5">@${nombreUser }&nbsp;${apellidoUser }</div>
 						<div class="h6 text-muted text-uppercase">descripcion del

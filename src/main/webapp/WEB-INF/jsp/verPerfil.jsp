@@ -77,15 +77,7 @@
 					
 				</div>
 			</div>
-			<div class="col-sm-12 col-md-6 col-lg-3 my-5">
-				<div class="card border-0">
-					<div class="card-body text-center">
-						<i class="fa fa-user-times fa-5x mb-3"></i>
-						<h4 class="text-uppercase mb-5">DAR DE BAJA</h4>
-						<a href="/deleteUser">DAR DE BAJA MI USUARIO</a>
-
-					</div>
-		</div>
+			</div>
 	</div>
 
 
