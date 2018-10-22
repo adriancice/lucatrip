@@ -51,6 +51,7 @@
 				<div class="card">
 					<div class="card-body">
 						<div class="h5">@${nombreUser }&nbsp;${apellidoUser }</div>
+						<i class="fa fa-clock-o"></i>&nbsp;${fecha }
 						<div class="h6 text-muted text-uppercase">descripcion del
 							evento</div>
 						<div class="h7">${descripcion}</div>

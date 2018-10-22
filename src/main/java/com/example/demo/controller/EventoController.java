@@ -171,6 +171,7 @@ public class EventoController {
 		req.setAttribute("imagen", e.getImagen());
 		req.setAttribute("nombreUser", user.getName());
 		req.setAttribute("apellidoUser", user.getSurname());
+		req.setAttribute("fecha", e.getFechaEvento());
 
 		req.setAttribute("listaLikes", listaLikes);
 
