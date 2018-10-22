@@ -85,32 +85,34 @@ public class EventoController {
 			StringTokenizer stfecha = new StringTokenizer(fechasubs, "-");
 			StringTokenizer sthora = new StringTokenizer(horasubs, ":");
 
-			for (int i = 0; i <= 3; i++) {
-				if (i == 0) {
-					año = stfecha.nextToken();
-				}
-				if (i == 1) {
-					mes = stfecha.nextToken();
-				}
-				if (i == 2) {
-					dia = stfecha.nextToken();
-				}
-			}
-
-			for (int i = 0; i <= 2; i++) {
-				if (i == 0) {
-					hora = sthora.nextToken();
-				}
-				if (i == 1) {
-					minuto = sthora.nextToken();
-				}
-			}
-			Date fechaEvento = new Date();
-			fechaEvento.setDate(Integer.parseInt(dia));
-			fechaEvento.setHours(Integer.parseInt(hora));
-			fechaEvento.setMinutes(Integer.parseInt(minuto));
-			fechaEvento.setMonth(Integer.parseInt(mes));
-			fechaEvento.setYear(Integer.parseInt(año));
+			
+			
+//			for (int i = 0; i <= 3; i++) {
+//				if (i == 0) {
+//					año = stfecha.nextToken();
+//				}
+//				if (i == 1) {
+//					mes = stfecha.nextToken();
+//				}
+//				if (i == 2) {
+//					dia = stfecha.nextToken();
+//				}
+//			}
+//
+//			for (int i = 0; i <= 2; i++) {
+//				if (i == 0) {
+//					hora = sthora.nextToken();
+//				}
+//				if (i == 1) {
+//					minuto = sthora.nextToken();
+//				}
+//			}
+//			Date fechaEvento = new Date();
+//			fechaEvento.setDate(Integer.parseInt(dia));
+//			fechaEvento.setHours(Integer.parseInt(hora));
+//			fechaEvento.setMinutes(Integer.parseInt(minuto));
+//			fechaEvento.setMonth(Integer.parseInt(mes));
+//			fechaEvento.setYear(Integer.parseInt(año));
 
 			// INSERTAR EN BASE DE DATOS
 			Evento evento = new Evento();
@@ -118,13 +120,14 @@ public class EventoController {
 			evento.setLongitud(Double.parseDouble(longitud));
 			evento.setCiudad(ciudad);
 			evento.setPais(pais);
-			evento.setFechaEvento(fechaEvento);
+			evento.setFechaEvento(fechasubs + "-"+ horasubs );
 			evento.setDescripcion(descripcion);
 			evento.setSitio(lugar);
 			evento.setImagen(url);
 			evento.setIdUser(user.getIdUser());
 
 			eventoService.add(evento);
+			System.err.println(fecha);
 
 		} catch (Exception e) {
 			mensajeEvento = "Ha ocurrido un error";
@@ -160,7 +163,7 @@ public class EventoController {
 		ArrayList<Comentario> listaComentarios = comentarioService.findComentariosByIdEvento(id_evento);
 
 		session.setAttribute("totallikes", listaLikes.size());
-
+		req.setAttribute("fechaEvento", e.getFechaEvento());
 		req.setAttribute("lugar", e.getSitio());
 		req.setAttribute("id_evento", e.getIdEvento());
 		req.setAttribute("pais", e.getPais());

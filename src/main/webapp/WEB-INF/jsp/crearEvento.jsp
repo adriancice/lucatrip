@@ -64,7 +64,7 @@
 		<div id="fecha" class="container text-center mt">
 			<h3>Fecha del evento</h3>
 			<input required="required" type="datetime-local" id="fecha"
-				name="fecha" max="9999-12-12T00:00:00.00">
+				name="fecha" max="9999-12-12T00:00:00">
 		</div>
 
 

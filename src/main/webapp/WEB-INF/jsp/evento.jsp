@@ -51,7 +51,7 @@
 				<div class="card">
 					<div class="card-body">
 						<div class="h5">@${nombreUser }&nbsp;${apellidoUser }</div>
-						<i class="fa fa-clock-o"></i>&nbsp;${fecha }
+						<i class="fa fa-clock-o"></i>&nbsp;${fechaEvento }
 						<div class="h6 text-muted text-uppercase">descripcion del
 							evento</div>
 						<div class="h7">${descripcion}</div>
@@ -195,7 +195,8 @@
 			// The marker, positioned at Uluru
 			var marker = new google.maps.Marker({
 				position : uluru,
-				map : map
+				map : map,
+				title : "Lugar del evento"
 			});
 		}
 	</script>
