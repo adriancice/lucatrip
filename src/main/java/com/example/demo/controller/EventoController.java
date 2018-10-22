@@ -120,7 +120,7 @@ public class EventoController {
 			evento.setLongitud(Double.parseDouble(longitud));
 			evento.setCiudad(ciudad);
 			evento.setPais(pais);
-			evento.setFechaEvento(fechasubs + "-"+ horasubs );
+			evento.setFechaEvento(fechasubs + "  "+ horasubs );
 			evento.setDescripcion(descripcion);
 			evento.setSitio(lugar);
 			evento.setImagen(url);
