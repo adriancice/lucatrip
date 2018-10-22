@@ -32,4 +32,6 @@ public interface IEventoService {
 	
 	List<Evento> serchEvento(String pais);
 
+	List<Evento> findEventosByUserLike(int id_user);
+
 }

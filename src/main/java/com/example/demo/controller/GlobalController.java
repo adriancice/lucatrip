@@ -90,4 +90,17 @@ public class GlobalController {
 		return modelAndView;
 	}
 
+	
+
+	@RequestMapping("/verGustados")
+	public ModelAndView verGustados(HttpServletRequest req) {
+		logger.info("verGustados");
+		HttpSession session = req.getSession(true);
+		ModelAndView modelAndView = new ModelAndView();
+		User user = (User) session.getAttribute("user");
+		modelAndView.addObject("eventosGustados", eventoService.findEventosByUserLike((user.getIdUser())));
+		modelAndView.setViewName("verGustados");
+		return modelAndView;
+	}
+	
 }

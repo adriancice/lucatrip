@@ -101,4 +101,15 @@ public class EventoServiceImpl implements IEventoService {
 		}
 		return null;
 	}
+	
+	
+	@Override
+	public List<Evento> findEventosByUserLike(int id_user) {
+
+		Optional<List<Evento>> searchEvento=eventoRepository.findByUserLike(id_user);
+		if(searchEvento.isPresent()) {
+			return searchEvento.get();
+		}
+		return null;
+	}
 }
