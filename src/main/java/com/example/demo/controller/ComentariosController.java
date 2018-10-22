@@ -37,7 +37,7 @@ public class ComentariosController {
 		nuevoComentario.setIdEvento(id_evento);
 		nuevoComentario.setIdUser(nombreUser);
 		nuevoComentario.setFotoUser(u.getFoto());
-
+		
 		comentarioService.save(nuevoComentario);
 
 		logger.error("comentar");

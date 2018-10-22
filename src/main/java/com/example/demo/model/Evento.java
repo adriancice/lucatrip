@@ -34,7 +34,7 @@ public class Evento {
 	private String sitio;
 
 	@Column(name = "fecha_evento")
-	private Date fechaEvento;
+	private String fechaEvento;
 
 	private String pais;
 
@@ -77,11 +77,12 @@ public class Evento {
 		return longitud;
 	}
 
-	public Date getFechaEvento() {
+
+	public String getFechaEvento() {
 		return fechaEvento;
 	}
 
-	public void setFechaEvento(Date fechaEvento) {
+	public void setFechaEvento(String fechaEvento) {
 		this.fechaEvento = fechaEvento;
 	}
 
