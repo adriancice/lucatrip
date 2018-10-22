@@ -19,4 +19,6 @@ public interface IComentarioService {
 
 	ArrayList<Comentario> findComentariosByIdEvento(int id_evento);
 
+	void deleteAllComentariosByIdUser(int id_user);
+
 }

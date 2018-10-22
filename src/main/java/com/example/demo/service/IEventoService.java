@@ -34,4 +34,6 @@ public interface IEventoService {
 
 	List<Evento> findEventosByUserLike(int id_user);
 
+	void deleteAllEventosByIdUser(int id_user);
+
 }

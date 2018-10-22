@@ -119,4 +119,11 @@ public class EventoServiceImpl implements IEventoService {
 		}
 		return null;
 	}
+	
+	
+	@Override
+	public void deleteAllEventosByIdUser(int id_user) {
+
+		eventoRepository.deleteAllEventosByIdUser(id_user);
+	}
 }
