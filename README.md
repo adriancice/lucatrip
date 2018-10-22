@@ -1,5 +1,5 @@
-#                                           LucaTrip
-# Proyecto de Lucatic
+#Proyecto LucaTrip
+
 
 ## Inspiration
 [google](https://www.google.com/search?q=spring+boot+tutorial)
