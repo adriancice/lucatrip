@@ -24,7 +24,7 @@
 	<div class="container-fluid row my-5 px-3">
 		<c:forEach var="e" items="${evento}">
 			<div class="col-md-3">
-				<div class="card">
+				<div class="card h-100">
 					<img class="card-img-top" src="${e.imagen }" alt="Card image cap">
 					<div class="card-body">
 						<h5 class="card-title border-bottom pb-3">${e.sitio }</h5>
