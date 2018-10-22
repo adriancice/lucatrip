@@ -25,5 +25,6 @@ public interface IEventoRepository extends PagingAndSortingRepository<Evento, In
 	
 	@Query(value="select * from eventos where id_evento in(select id_evento from likes where id_like in (select id_like from likes where id_user = :id_user))",  nativeQuery=true)
 	public Optional<List<Evento>> findByUserLike(@Param("id_user")int id_user);
+
 }
 

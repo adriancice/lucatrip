@@ -69,7 +69,7 @@
 
 
 		<div class="container text-center pt-3" id="enviar">
-			<input class="btn btn-success" type="submit" name="enviar" value="Crear">
+			<input class="btn btn-success" type="submit" name="enviar" value="Crear evento">
 		</div>
 
 

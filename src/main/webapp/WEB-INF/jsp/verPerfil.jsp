@@ -25,7 +25,7 @@
 						</c:when>
 						<c:otherwise>
 							<img
-								src="https://d500.epimg.net/cincodias/imagenes/2016/07/04/lifestyle/1467646262_522853_1467646344_noticia_normal.jpg">
+								src="/images/user/userFoto.jpg">
 						</c:otherwise>
 					</c:choose>
 					<div class="box-content">
@@ -70,7 +70,7 @@
 					<div class="card-body text-center">
 						<i class="fa fa-edit fa-5x mb-3" aria-hidden="true"></i>
 						<h4 class="text-uppercase mb-5">edit user</h4>
-						<a href="/editUser">EDITAR USER</a>
+						<a href="/modificarPerfil">EDITAR USER</a>
 
 					</div>
 				</div>

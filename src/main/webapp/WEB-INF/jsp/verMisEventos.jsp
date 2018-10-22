@@ -6,14 +6,16 @@
 <head>
 <%@ include file="fragments/head.jsp"%>
 
-<title>Login</title>
+<title>Ver mis eventos</title>
 </head>
 <body>
 
 	<%@ include file="fragments/header.jsp"%>
 
 	<h3 class="text-center">Mis eventos</h3>
-	
+	<c:if test="${mensajeNoEventos != null }">
+		<h5 class="container">${mensajeNoEventos }</h5>
+	</c:if>
 	<!-- Start of card´s -->
 	<div class="container-fluid row mt-5 px-3">
 		<c:forEach var="ev" items="${listarMisEventos}">
@@ -25,7 +27,14 @@
 						<strong>${ev.ciudad }</strong>
 						<p class="card-text">${ev.descripcion }.</p>
 						<a href="/verevento?id_evento=${ev.idEvento}"
-							class="btn btn-sm btn-info float-right">Read more &raquo;</a>
+							class="btn btn-sm btn-info float-right">Ver más detalles
+							&raquo;</a>
+					</div>
+					<div class="card-footer">
+						<a href="/borrarEvento?idEvento=${ev.idEvento }" class="card-link"><i
+							class="fa fa-times-circle"></i>&nbsp;BORRAR</a> <a
+							href="/editarEvento?idEvento=${ev.idEvento }" class="card-link"><i
+							class="fa fa-edit"></i>&nbsp;EDITAR</a>
 					</div>
 				</div>
 			</div>

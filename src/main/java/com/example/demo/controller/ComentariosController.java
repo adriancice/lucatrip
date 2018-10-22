@@ -1,11 +1,8 @@
 package com.example.demo.controller;
 
-import java.util.ArrayList;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.apache.tomcat.util.buf.UDecoder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,11 +13,8 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
 import com.example.demo.model.Comentario;
-import com.example.demo.model.Like;
 import com.example.demo.model.User;
 import com.example.demo.service.IComentarioService;
-import com.example.demo.service.IEventoService;
-import com.example.demo.service.ILikeService;
 
 @Controller
 public class ComentariosController {
@@ -30,31 +24,28 @@ public class ComentariosController {
 
 	@Autowired
 	private IComentarioService comentarioService;
-	
-	
 
-	
 	@RequestMapping(value = "/comentar")
-	public ModelAndView cerrarSesion(HttpServletRequest req, @RequestParam("id_evento") int id_evento, @RequestParam("comentario") String comentario) {
+	public ModelAndView cerrarSesion(HttpServletRequest req, @RequestParam("id_evento") int id_evento,
+			@RequestParam("comentario") String comentario) {
 		session = req.getSession(true);
 		User u = (User) session.getAttribute("user");
-		int id_user = u.getIdUser();
-		
+		String nombreUser = u.getName() + " " + u.getSurname();
+
 		Comentario nuevoComentario = new Comentario();
 		nuevoComentario.setComentario(comentario);
 		nuevoComentario.setIdEvento(id_evento);
-		nuevoComentario.setIdUser(id_user);
+		nuevoComentario.setIdUser(nombreUser);
+		nuevoComentario.setFotoUser(u.getFoto());
+
 		comentarioService.save(nuevoComentario);
-		
+
 		logger.error("comentar");
 		ModelAndView modelAndView = new ModelAndView();
-		//modelAndView.setViewName("evento");
+		// modelAndView.setViewName("evento");
 //		modelAndView.addObject("id_evento", id_evento);
-		modelAndView.setView(new RedirectView("verevento?id_evento="+id_evento+"", true));
-		
-		
+		modelAndView.setView(new RedirectView("verevento?id_evento=" + id_evento + "", true));
+
 		return modelAndView;
-	
-	
-}
+	}
 }

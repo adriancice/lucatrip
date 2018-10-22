@@ -67,7 +67,6 @@ public class GlobalController {
 		modelAndView.setViewName("verPerfil");
 		User user = (User) session.getAttribute("user");
 		modelAndView.addObject("user", userService.findById(user.getIdUser()));
-		modelAndView.addObject("url", "/images/user/");
 		return modelAndView;
 	}
 
@@ -78,6 +77,9 @@ public class GlobalController {
 		ModelAndView modelAndView = new ModelAndView();
 		User user = (User) session.getAttribute("user");
 		modelAndView.addObject("listarMisEventos", eventoService.findAllById(user.getIdUser()));
+		if (eventoService.findAllById(user.getIdUser()).isEmpty()) {
+			modelAndView.addObject("mensajeNoEventos", "No tienes ningun evento creado !");
+		}
 		modelAndView.setViewName("verMisEventos");
 		return modelAndView;
 	}
