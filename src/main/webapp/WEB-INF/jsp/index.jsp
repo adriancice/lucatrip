@@ -89,10 +89,9 @@
 		<div class="container mt-5">
 			<h3 class="text-uppercase">ultimos eventos añadidos</h3>
 		</div>
-
 		<div class="container-fluid row my-5 px-3">
 			<c:forEach var="e" items="${listaEventos}">
-				<div class="col-md-3">
+				<div class="col-md-3 mb-4">
 					<div class="card h-100">
 						<img class="card-img-top" src="${e.imagen}" alt="Card image cap">
 						<div class="card-body">
