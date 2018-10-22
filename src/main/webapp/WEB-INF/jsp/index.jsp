@@ -6,7 +6,6 @@
 <head>
 <%@ include file="fragments/head.jsp"%>
 <meta charset="utf-8">
-
 <script
 	src="http://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyBa-NxlN1zc0dlp5bdYBzt1xzS2F1ZVlro"
 	type="text/javascript"></script>
@@ -16,75 +15,43 @@
 
 	<%@ include file="fragments/header.jsp"%>
 	<!-- El carrousel del index -->
-	<div class="container-fluid">
-
-		<div id="myCarousel" class="carousel slide" data-ride="carousel">
+	<div class="container">
+		<div id="carouselExampleIndicators" class="carousel slide"
+			data-ride="carousel">
 			<ol class="carousel-indicators">
-				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-				<li data-target="#myCarousel" data-slide-to="1"></li>
-				<li data-target="#myCarousel" data-slide-to="2"></li>
+				<li data-target="#carouselExampleIndicators" data-slide-to="0"
+					class="active"></li>
+				<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+				<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
 			</ol>
 			<div class="carousel-inner">
 				<div class="carousel-item active">
-					<img class="first-slide" src="images/slide_1.jpg" alt="First slide">
-					<div class="container">
-						<div class="carousel-caption text-left">
-							<h1>Example headline.</h1>
-							<p>Cras justo odio, dapibus ac facilisis in, egestas eget
-								quam. Donec id elit non mi porta gravida at eget metus. Nullam
-								id dolor id nibh ultricies vehicula ut id elit.</p>
-							<p>
-								<a class="btn btn-lg btn-primary" href="#" role="button">Sign
-									up today</a>
-							</p>
-						</div>
-					</div>
+					<img class="d-block w-100" src="/images/carousel/slide1.jpg"
+						alt="First slide">
 				</div>
 				<div class="carousel-item">
-					<img class="second-slide" src="images/slide_2.jpg"
+					<img class="d-block w-100" src="/images/carousel/slide2.jpg"
 						alt="Second slide">
-					<div class="container">
-						<div class="carousel-caption">
-							<h1>Another example headline.</h1>
-							<p>Cras justo odio, dapibus ac facilisis in, egestas eget
-								quam. Donec id elit non mi porta gravida at eget metus. Nullam
-								id dolor id nibh ultricies vehicula ut id elit.</p>
-							<p>
-								<a class="btn btn-lg btn-primary" href="#" role="button">Learn
-									more</a>
-							</p>
-						</div>
-					</div>
 				</div>
 				<div class="carousel-item">
-					<img class="third-slide" src="images/slide_3.jpg" alt="Third slide">
-					<div class="container">
-						<div class="carousel-caption text-right">
-							<h1>One more for good measure.</h1>
-							<p>Cras justo odio, dapibus ac facilisis in, egestas eget
-								quam. Donec id elit non mi porta gravida at eget metus. Nullam
-								id dolor id nibh ultricies vehicula ut id elit.</p>
-							<p>
-								<a class="btn btn-lg btn-primary" href="#" role="button">Browse
-									gallery</a>
-							</p>
-						</div>
-					</div>
+					<img class="d-block w-100" src="/images/carousel/slide3.jpg"
+						alt="Third slide">
 				</div>
 			</div>
-			<a class="carousel-control-prev" href="#myCarousel" role="button"
-				data-slide="prev"> <span class="carousel-control-prev-icon"
-				aria-hidden="true"></span> <span class="sr-only">Previous</span>
-			</a> <a class="carousel-control-next" href="#myCarousel" role="button"
-				data-slide="next"> <span class="carousel-control-next-icon"
-				aria-hidden="true"></span> <span class="sr-only">Next</span>
+			<a class="carousel-control-prev" href="#carouselExampleIndicators"
+				role="button" data-slide="prev"> <span
+				class="carousel-control-prev-icon" aria-hidden="true"></span> <span
+				class="sr-only">Previous</span>
+			</a> <a class="carousel-control-next" href="#carouselExampleIndicators"
+				role="button" data-slide="next"> <span
+				class="carousel-control-next-icon" aria-hidden="true"></span> <span
+				class="sr-only">Next</span>
 			</a>
 		</div>
 	</div>
 	<!-- Fin carrousel del index -->
 
 	<!-- Empieza buscador -->
-
 	<div id="buscador" class="container text-center mt">
 		<form action="/searchEvent" method="post">
 			<h3>Buscar Eventos</h3>
@@ -116,26 +83,31 @@
 		</form>
 	</div>
 	<!-- Finaliza buscador -->
-	<!-- Start of card´s -->
-	<div class="container mt-5">
-		<h3 class="text-uppercase">ultimos eventos añadidos</h3>
-	</div>
 
-	<div class="container-fluid row my-5 px-3">
-		<c:forEach var="e" items="${listaEventos}">
-			<div class="col-md-3">
-				<div class="card">
-					<img class="card-img-top" src="${e.imagen}" alt="Card image cap">
-					<div class="card-body">
-						<h5 class="card-title border-bottom pb-3">${e.sitio }</h5>
-						<strong>${e.ciudad }</strong>
-						<p class="card-text">${e.descripcion }.</p>
-						<a href="/verevento?id_evento=${e.idEvento}"
-							class="btn btn-sm btn-info float-right">Ver más detalles &raquo;</a>
+
+	<!-- Start of card´s -->
+	<div class="container">
+		<div class="container mt-5">
+			<h3 class="text-uppercase">ultimos eventos añadidos</h3>
+		</div>
+
+		<div class="container-fluid row my-5 px-3">
+			<c:forEach var="e" items="${listaEventos}">
+				<div class="col-md-3">
+					<div class="card h-100">
+						<img class="card-img-top" src="${e.imagen}" alt="Card image cap">
+						<div class="card-body">
+							<h5 class="card-title border-bottom pb-3">${e.sitio }</h5>
+							<strong>${e.ciudad }</strong>
+							<p class="card-text">${e.descripcion }.</p>
+							<a href="/verevento?id_evento=${e.idEvento}"
+								class="btn btn-sm btn-info float-right">Ver más detalles
+								&raquo;</a>
+						</div>
 					</div>
 				</div>
-			</div>
-		</c:forEach>
+			</c:forEach>
+		</div>
 	</div>
 	<!-- end of card -->
 

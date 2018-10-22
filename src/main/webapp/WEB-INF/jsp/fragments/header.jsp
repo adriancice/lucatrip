@@ -2,13 +2,11 @@
 
 	<div
 		class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
-		<h3 class="my-0 mr-md-auto"><a href="/">LucaTrip</a></h3>
-		<nav class="my-2 my-md-0 mr-md-3">
-			<a class="p-2 text-dark" href="#">Features</a> <a
-				class="p-2 text-dark" href="#">Enterprise</a> <a
-				class="p-2 text-dark" href="#">Support</a> <a class="p-2 text-dark"
-				href="#">Pricing</a>
-		</nav>
+
+		<h3 class="my-0 mr-md-auto">
+			<a href="/"><img src="/images/logo1.png" width="200" height="50"
+				alt="logo.png"></a>
+		</h3>
 		<c:choose>
 			<c:when test="${sessionScope.user == null }">
 				<a href="/login" role="button" class="btn btn-outline-success mx-2">Sign
@@ -27,10 +25,11 @@
 							<a class="dropdown-item" href="/verPerfil">Ver mi perfil</a> <a
 								class="dropdown-item" href="/crearEvento">Crear evento</a> <a
 								class="dropdown-item" href="/verMisEventos">Ver mis eventos</a>
-								 <a class="dropdown-item" href="/verGustados">Eventos que me han gustado</a>
+							<a class="dropdown-item" href="/verGustados">Eventos que me
+								han gustado</a>
 							<hr>
 							<button class="dropdown-item" type="submit">Logout</button>
-							
+
 						</form>
 					</div>
 				</div>

@@ -9,7 +9,7 @@
 <head>
 <%@ include file="fragments/head.jsp"%>
 
-<title>LucaTrip</title>
+<title>Detalles evento</title>
 <script
 	src="http://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyBa-NxlN1zc0dlp5bdYBzt1xzS2F1ZVlro"
 	type="text/javascript"></script>
@@ -34,10 +34,12 @@
 				<div>
 					<h2>${lugar}</h2>
 					<h3>${ciudad },&nbsp;&nbsp;${pais }</h3>
-					<img alt="foto del evento" src="${imagen}" width="400" height="400">
+					<img alt="foto del evento" src="${imagen}" width="600" height="400">
 				</div>
 			</div>
 			<div class="col-md-6 my-5">
+			<h2> &nbsp;</h2>
+			<h3> &nbsp;</h3>
 				<div id="map"></div>
 			</div>
 		</div>
