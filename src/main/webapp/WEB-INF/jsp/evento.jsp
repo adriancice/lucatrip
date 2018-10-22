@@ -200,7 +200,8 @@
 			// The marker, positioned at Uluru
 			var marker = new google.maps.Marker({
 				position : uluru,
-				map : map
+				map : map,
+				title : "Lugar del evento"
 			});
 		}
 	</script>
