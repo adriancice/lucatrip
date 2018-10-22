@@ -17,8 +17,9 @@
 						marketing.</p>
 					<!-- Rights-->
 					<p class="rights">
-						&copy; 2018 LucaTrip. All Rights Reserved.</span>
+						&copy; 2018 LucaTrip. All Rights Reserved.
 					</p>
+					<a class="btn btn-info" href="https://www.paypal.com/es/home" target="_blank"> Sponsor Now! </a>
 				</div>
 			</div>
 			<div class="col-md-4">

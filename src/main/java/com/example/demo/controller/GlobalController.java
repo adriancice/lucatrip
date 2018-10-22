@@ -87,14 +87,6 @@ public class GlobalController {
 		return modelAndView;
 	}
 
-	@RequestMapping("/paginator")
-	public ModelAndView paginator(HttpServletRequest req) {
-		logger.info("paginator");
-		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("paginator");
-		return modelAndView;
-	}
-
 	@RequestMapping("/verGustados")
 	public ModelAndView verGustados(HttpServletRequest req) {
 		logger.info("verGustados");
