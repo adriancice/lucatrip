@@ -38,55 +38,49 @@
 				</div>
 			</div>
 			<div class="col-md-6 my-5">
-			<h2> &nbsp;</h2>
-			<h3> &nbsp;</h3>
+				<h2>&nbsp;</h2>
+				<h3>&nbsp;</h3>
 				<div id="map"></div>
 			</div>
 		</div>
 	</div>
-
+	<!-- autor -->
 	<div class="container-fluid gedf-wrapper">
 		<div class="row">
 			<div class="col-md-3">
-				<div class="card h-100">
+				<div class="card">
 					<div class="card-body">
 						<div class="h5">@${nombreUser }&nbsp;${apellidoUser }</div>
 						<div class="h6 text-muted text-uppercase">descripcion del
 							evento</div>
-						
 						<div class="h7">${descripcion}</div>
-							
 					</div>
 					<ul class="list-group list-group-flush">
 						<li class="list-group-item">
 							<div class="h6 text-muted">Like´s totales</div>
 							<div class="h5">${sessionScope.totallikes }</div>
 						</li>
-					
 						<li class="list-group-item"><c:choose>
 								<c:when test="${sessionScope.user != null }">
 									<a
 										href="/darlike?id_user=${sessionScope.user.idUser}&id_evento=${id_evento}">
 										<i class="fa fa-gittip"></i>&nbsp;Like
 									</a>
-									
 								</c:when>
 								<c:otherwise>
-								</a>
 									<p>
 										Para dar al like tienes que estar logueado, pulse <a
 											href="login">LOGIN</a> <a href="register">REGISTRAR</a>
 									</p>
 								</c:otherwise>
 							</c:choose></li>
-							<c:if test="${sessionScope.user != null }">
+						<c:if test="${sessionScope.user != null }">
 							<a>${sessionScope.mensaje }</a>
-							</c:if>
-								
+						</c:if>
 					</ul>
 				</div>
 			</div>
-
+			<!-- end autor -->
 			<div class="col-md-6 gedf-main">
 				<!--- \\\\\\\ Comentarios-->
 				<c:forEach var="c" items="${listaComentarios}">
