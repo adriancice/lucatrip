@@ -67,7 +67,6 @@ public class GlobalController {
 		modelAndView.setViewName("verPerfil");
 		User user = (User) session.getAttribute("user");
 		modelAndView.addObject("user", userService.findById(user.getIdUser()));
-		modelAndView.addObject("url", "/images/user/");
 		return modelAndView;
 	}
 

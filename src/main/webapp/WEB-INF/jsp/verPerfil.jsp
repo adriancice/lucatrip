@@ -70,7 +70,7 @@
 					<div class="card-body text-center">
 						<i class="fa fa-edit fa-5x mb-3" aria-hidden="true"></i>
 						<h4 class="text-uppercase mb-5">edit user</h4>
-						<a href="/editUser">EDITAR USER</a>
+						<a href="/modificarPerfil">EDITAR USER</a>
 
 					</div>
 				</div>

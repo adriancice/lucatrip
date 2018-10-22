@@ -21,4 +21,6 @@ public interface IEventoRepository extends PagingAndSortingRepository<Evento, In
 
 	@Query(value="SELECT * FROM eventos WHERE pais = :pais", nativeQuery=true)
 	public Optional<List<Evento>> findbyPaisCiudadSitio(@Param("pais")String pais);
+	
+
 }
