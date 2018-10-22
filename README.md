@@ -34,9 +34,5 @@ mvn clean spring-boot:run
 * **Victor Mercado** - *Contribuitor* - [Victor](https://github.com/victorague)
 * **Alberto Amado** - *Contribuitor* - [Alberto](https://github.com/yasurio)
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE) file for details
-
 ## PD
 *never back down*
