@@ -72,11 +72,10 @@
 									
 								</c:when>
 								<c:otherwise>
-									<a> <i class="fa fa-gittip"></i>&nbsp;Like&nbsp;&nbsp;&nbsp;${sessionScope.totallikes }
-									</a>
+								</a>
 									<p>
 										Para dar al like tienes que estar logueado, pulse <a
-											href="login">LOGIN</a> o <a href="register">REGISTRAR</a>
+											href="login">LOGIN</a> <a href="register">REGISTRAR</a>
 									</p>
 								</c:otherwise>
 							</c:choose></li>
