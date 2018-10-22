@@ -52,9 +52,8 @@
 	<!-- Fin carrousel del index -->
 
 	<!-- Empieza buscador -->
-	<div id="buscador" class="container text-center mt">
+	<div id="buscador" class="container text-center mt-5">
 		<form action="/searchEvent" method="post">
-			<h3>Buscar Eventos</h3>
 			<c:if test="${bandera==false}">
 				<div class="alert alert-danger alert-dismissible show" role="alert">
 					<strong>${mensaje}</strong>
