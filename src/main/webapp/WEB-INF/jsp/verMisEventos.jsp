@@ -17,28 +17,30 @@
 		<h5 class="container">${mensajeNoEventos }</h5>
 	</c:if>
 	<!-- Start of card´s -->
-	<div class="container-fluid row mt-5 px-3">
-		<c:forEach var="ev" items="${listarMisEventos}">
-			<div class="col-md-3">
-				<div class="card">
-					<img class="card-img-top" src="${ev.imagen }" alt="Card image cap">
-					<div class="card-body">
-						<h5 class="card-title border-bottom pb-3">${ev.sitio }</h5>
-						<strong>${ev.ciudad }</strong>
-						<p class="card-text">${ev.descripcion }.</p>
-						<a href="/verevento?id_evento=${ev.idEvento}"
-							class="btn btn-sm btn-info float-right">Ver más detalles
-							&raquo;</a>
-					</div>
-					<div class="card-footer">
-						<a href="/borrarEvento?idEvento=${ev.idEvento }" class="card-link"><i
-							class="fa fa-times-circle"></i>&nbsp;BORRAR</a> <a
-							href="/editarEvento?idEvento=${ev.idEvento }" class="card-link"><i
-							class="fa fa-edit"></i>&nbsp;EDITAR</a>
+	<div class="container">
+		<div class="container-fluid row mt-5 px-3">
+			<c:forEach var="ev" items="${listarMisEventos}">
+				<div class="col-md-4">
+					<div class="card">
+						<img class="card-img-top" src="${ev.imagen }" alt="Card image cap">
+						<div class="card-body">
+							<h5 class="card-title border-bottom pb-3">${ev.sitio }</h5>
+							<strong>${ev.ciudad }</strong>
+							<p class="card-text">${ev.descripcion }.</p>
+							<a href="/verevento?id_evento=${ev.idEvento}"
+								class="btn btn-sm btn-info float-right">Ver más detalles
+								&raquo;</a>
+						</div>
+						<div class="card-footer">
+							<a href="/borrarEvento?idEvento=${ev.idEvento }"
+								class="card-link"><i class="fa fa-times-circle"></i>&nbsp;BORRAR</a>
+							<a href="/editarEvento?idEvento=${ev.idEvento }"
+								class="card-link"><i class="fa fa-edit"></i>&nbsp;EDITAR</a>
+						</div>
 					</div>
 				</div>
-			</div>
-		</c:forEach>
+			</c:forEach>
+		</div>
 	</div>
 	<!-- end of card -->
 
